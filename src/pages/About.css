@@ -1,0 +1,121 @@
+.about__vm .subhead {
+  color: var(--color-orange-600);
+}
+.about__vm p:not(.subhead) {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-navy);
+  max-width: 46ch;
+}
+
+.about__leaders {
+  display: grid;
+  gap: var(--space-5);
+}
+@media (min-width: 720px) {
+  .about__leaders {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.leader {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.leader__photo {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--color-mist);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.leader__name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-navy);
+}
+.leader__role {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-orange-600);
+  margin-top: 2px;
+}
+.leader__bio {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--color-steel);
+}
+
+.team {
+  display: grid;
+  gap: var(--space-5);
+}
+@media (min-width: 720px) {
+  .team {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.team__group {
+  padding: var(--space-6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.team__count {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--color-orange);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.team__count span {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.team__roles {
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.team__roles li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: var(--text-sm);
+  color: #c9d2da;
+}
+.team__roles li:last-child {
+  border-bottom: none;
+}
+.team__n {
+  font-weight: 700;
+  color: var(--color-white);
+}

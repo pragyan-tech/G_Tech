@@ -4,7 +4,7 @@ import "./ProofBar.css";
 
 export default function ProofBar() {
   return (
-    <section className="proof" id="equipment" aria-label="Plant and equipment at a glance">
+    <section className="proof" aria-label="Plant and equipment at a glance">
       <div className="container">
         <RevealGroup className="proof__row" step={0.07}>
           {PROOF_STATS.map((stat) => (

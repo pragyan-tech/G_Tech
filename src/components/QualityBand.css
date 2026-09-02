@@ -19,6 +19,26 @@
   max-width: 60ch;
 }
 
+.quality__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-white);
+  transition: gap var(--transition), color var(--transition);
+}
+.quality__link svg {
+  width: 16px;
+  height: 16px;
+}
+.quality__link:hover {
+  color: var(--color-orange);
+  gap: var(--space-3);
+}
+
 .quality__checks {
   display: flex;
   flex-direction: column;

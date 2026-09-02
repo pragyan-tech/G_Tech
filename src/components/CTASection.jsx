@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal.jsx";
 import Button from "./ui/Button.jsx";
 import "./CTASection.css";
@@ -14,7 +15,7 @@ export default function CTASection() {
               time — prototype or production, machining or fabrication.
             </p>
           </div>
-          <Button as="a" href="#contact" variant="primary" size="lg">
+          <Button as={Link} to="/contact" variant="primary" size="lg">
             Request a Quote
           </Button>
         </Reveal>

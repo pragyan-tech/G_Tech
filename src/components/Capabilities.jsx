@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import Button from "./ui/Button.jsx";
 import { ArrowRight, ICONS } from "./Icons.jsx";
 import { CAPABILITIES } from "../data/site.js";
 import "./Capabilities.css";
@@ -27,13 +29,19 @@ export default function Capabilities() {
                 </span>
                 <h3 className="cap-card__title">{cap.title}</h3>
                 <p className="cap-card__body">{cap.body}</p>
-                <a className="cap-card__link" href={cap.href}>
+                <Link className="cap-card__link" to={cap.to}>
                   Learn more <ArrowRight />
-                </a>
+                </Link>
               </RevealItem>
             );
           })}
         </RevealGroup>
+
+        <Reveal className="cap__more">
+          <Button as={Link} to="/capabilities" variant="outline">
+            See all capabilities <ArrowRight />
+          </Button>
+        </Reveal>
       </div>
     </section>
   );

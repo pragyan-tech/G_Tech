@@ -96,6 +96,14 @@
   color: var(--color-navy);
 }
 
+.nav__link--active {
+  color: var(--color-white);
+}
+.nav--scrolled .nav__link--active {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
 .nav__cta {
   display: none;
 }
@@ -195,6 +203,9 @@
   border-bottom: 1px solid var(--color-border);
 }
 .nav__drawer-link:hover {
+  color: var(--color-orange-600);
+}
+.nav__drawer-link--active {
   color: var(--color-orange-600);
 }
 

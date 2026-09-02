@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Logo from "./Logo.jsx";
 import Button from "./ui/Button.jsx";
@@ -27,20 +28,27 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="container nav__inner">
-        <a href="#home" className="nav__brand" onClick={() => setMenuOpen(false)}>
+        <Link to="/" className="nav__brand" onClick={() => setMenuOpen(false)}>
           <Logo onDark={!scrolled} />
-        </a>
+        </Link>
 
         <nav className="nav__links" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="nav__link">
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === "/"}
+              className={({ isActive }) =>
+                `nav__link ${isActive ? "nav__link--active" : ""}`
+              }
+            >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
         <div className="nav__cta">
-          <Button as="a" href="#contact" variant="primary" size="sm">
+          <Button as={Link} to="/contact" variant="primary" size="sm">
             Request a Quote
           </Button>
         </div>
@@ -82,19 +90,22 @@ export default function Navbar() {
             >
               <nav className="nav__drawer-links" aria-label="Mobile">
                 {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="nav__drawer-link"
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    end={link.to === "/"}
+                    className={({ isActive }) =>
+                      `nav__drawer-link ${isActive ? "nav__drawer-link--active" : ""}`
+                    }
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </NavLink>
                 ))}
               </nav>
               <Button
-                as="a"
-                href="#contact"
+                as={Link}
+                to="/contact"
                 variant="primary"
                 size="lg"
                 className="nav__drawer-cta"

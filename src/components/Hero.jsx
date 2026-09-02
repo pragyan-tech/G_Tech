@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import Button from "./ui/Button.jsx";
 import { ArrowRight } from "./Icons.jsx";
@@ -53,7 +54,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className="hero__actions" variants={item}>
-            <Button as="a" href="#contact" variant="primary" size="lg">
+            <Button as={Link} to="/contact" variant="primary" size="lg">
               Request a Quote
             </Button>
             <Button

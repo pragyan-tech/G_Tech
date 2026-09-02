@@ -1,33 +1,32 @@
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import ProofBar from "./components/ProofBar.jsx";
-import Capabilities from "./components/Capabilities.jsx";
-import ClientStrip from "./components/ClientStrip.jsx";
-import FeaturedWork from "./components/FeaturedWork.jsx";
-import Industries from "./components/Industries.jsx";
-import QualityBand from "./components/QualityBand.jsx";
-import CTASection from "./components/CTASection.jsx";
-import Footer from "./components/Footer.jsx";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout.jsx";
+import Home from "./pages/Home.jsx";
+import Capabilities from "./pages/Capabilities.jsx";
+import CapabilityDetail from "./pages/CapabilityDetail.jsx";
+import Equipment from "./pages/Equipment.jsx";
+import Industries from "./pages/Industries.jsx";
+import Quality from "./pages/Quality.jsx";
+import Clients from "./pages/Clients.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import NotFound from "./pages/NotFound.jsx";
 import "./App.css";
 
 export default function App() {
   return (
-    <>
-      <a className="skip-link" href="#home">
-        Skip to content
-      </a>
-      <Navbar />
-      <main id="main">
-        <Hero />
-        <ProofBar />
-        <Capabilities />
-        <ClientStrip />
-        <FeaturedWork />
-        <Industries />
-        <QualityBand />
-        <CTASection />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="capabilities" element={<Capabilities />} />
+        <Route path="capabilities/:slug" element={<CapabilityDetail />} />
+        <Route path="equipment" element={<Equipment />} />
+        <Route path="industries" element={<Industries />} />
+        <Route path="quality" element={<Quality />} />
+        <Route path="clients" element={<Clients />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }

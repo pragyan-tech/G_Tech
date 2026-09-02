@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo.jsx";
 import { COMPANY, NAV_LINKS } from "../data/site.js";
 import "./Footer.css";
@@ -6,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
           <Logo onDark />
@@ -19,7 +20,7 @@ export default function Footer() {
         <div className="footer__col">
           <h3 className="footer__heading">Visit</h3>
           <address className="footer__address">
-            {COMPANY.address.map((line) => (
+            {COMPANY.addressLines.map((line) => (
               <span key={line}>{line}</span>
             ))}
           </address>
@@ -34,10 +35,12 @@ export default function Footer() {
                 <a href={`tel:${c.tel}`}>{c.phone}</a>
               </li>
             ))}
-            <li>
-              <span className="footer__name">Email</span>
-              <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-            </li>
+            {COMPANY.emails.map((email) => (
+              <li key={email}>
+                <span className="footer__name">Email</span>
+                <a href={`mailto:${email}`}>{email}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -45,8 +48,8 @@ export default function Footer() {
           <h3 className="footer__heading">Site map</h3>
           <ul className="footer__list footer__list--links" role="list">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
+              <li key={link.to}>
+                <Link to={link.to}>{link.label}</Link>
               </li>
             ))}
           </ul>
@@ -54,9 +57,11 @@ export default function Footer() {
       </div>
 
       <div className="container footer__bottom">
-        <p>© {year} {COMPANY.name}. All rights reserved.</p>
+        <p>
+          © {year} {COMPANY.name}. All rights reserved.
+        </p>
         <p className="footer__fineprint">
-          GTech Enterprises, Gat No. 1652, Chikhali, Pune – 411062, India
+          Gat No. 1652, Chikhali, Pune – 411062, India
         </p>
       </div>
     </footer>
