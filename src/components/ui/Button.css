@@ -1,0 +1,106 @@
+.btn {
+  --btn-h: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--btn-h);
+  padding-inline: var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.btn--md {
+  --btn-h: 44px;
+}
+.btn--lg {
+  --btn-h: 52px;
+  font-size: var(--text-base);
+  padding-inline: var(--space-6);
+}
+.btn--sm {
+  --btn-h: 36px;
+  padding-inline: var(--space-4);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[aria-disabled="true"],
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* primary — accent fill */
+.btn--primary {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+.btn--primary:hover {
+  background: var(--color-orange-600);
+}
+
+/* secondary — navy fill */
+.btn--secondary {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.btn--secondary:hover {
+  background: var(--color-navy-900);
+}
+
+/* outline — current colour border, transparent fill */
+.btn--outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-navy);
+}
+.btn--outline:hover {
+  border-color: var(--color-navy);
+  background: var(--color-mist);
+}
+
+/* ghost — text + arrow, no fill */
+.btn--ghost {
+  background: transparent;
+  padding-inline: var(--space-2);
+  color: var(--color-navy);
+}
+.btn--ghost:hover {
+  color: var(--color-orange-600);
+}
+
+/* on dark surfaces */
+.btn--on-dark.btn--outline {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--color-white);
+}
+.btn--on-dark.btn--outline:hover {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+.btn--on-dark.btn--ghost {
+  color: var(--color-white);
+}
+.btn--on-dark.btn--ghost:hover {
+  color: var(--color-orange);
+}

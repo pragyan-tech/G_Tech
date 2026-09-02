@@ -1,0 +1,69 @@
+.cap__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .cap__grid {
+    gap: var(--space-6);
+  }
+}
+
+.cap-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 768px) {
+  .cap-card {
+    padding: var(--space-6);
+  }
+}
+
+.cap-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-orange-100);
+  color: var(--color-orange-600);
+  margin-bottom: var(--space-4);
+}
+
+.cap-card__title {
+  margin-bottom: var(--space-3);
+}
+
+.cap-card__body {
+  font-size: var(--text-sm);
+  line-height: 1.57;
+  color: var(--color-steel);
+  flex-grow: 1;
+}
+
+.cap-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-navy);
+  transition: color var(--transition), gap var(--transition);
+}
+.cap-card__link svg {
+  width: 16px;
+  height: 16px;
+}
+.cap-card__link:hover {
+  color: var(--color-orange-600);
+  gap: var(--space-3);
+}
