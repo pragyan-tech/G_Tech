@@ -24,6 +24,7 @@ export default function Footer() {
               <span key={line}>{line}</span>
             ))}
           </address>
+          <p className="footer__gst">GST: 27ARAPJ5794R1ZX</p>
         </div>
 
         <div className="footer__col">
