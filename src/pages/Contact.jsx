@@ -27,14 +27,29 @@ const PROCESSES = [
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=GTech+Enterprises+Chikhali+Pune+411062";
 
+/* Indian mobile: 10 digits starting 6, 7, 8 or 9. */
+const INDIAN_MOBILE = /^[6-9]\d{9}$/;
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState({});
 
   function handleSubmit(e) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+
+    const mobile = (data.contactNumber || "").replace(/[\s-]/g, "");
+    if (!INDIAN_MOBILE.test(mobile)) {
+      setErrors({
+        contactNumber:
+          "Please enter a valid 10-digit Indian mobile number (starting 6, 7, 8 or 9).",
+      });
+      return;
+    }
+
+    setErrors({});
     // PLACEHOLDER handler — wire to a real endpoint / email service before launch.
-    console.log("[RFQ] submission", data);
+    console.log("[RFQ] submission", { ...data, contactNumber: mobile });
     setSent(true);
   }
 
@@ -43,7 +58,7 @@ export default function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Send us a drawing"
-        subline="Share your part details and drawings — we'll come back with a price and a lead time. Or call the directors directly."
+        subline="Share your part details and drawings — we'll come back with a price and a lead time. Or call our Plant Head directly."
       />
 
       <section className="section">
@@ -102,8 +117,11 @@ export default function Contact() {
             <Reveal className="contact__block">
               <p className="subhead">Email</p>
               <ul className="contact__list" role="list">
-                {COMPANY.emails.map((email) => (
+                {COMPANY.emails.map((email, i) => (
                   <li key={email}>
+                    <span className="contact__name">
+                      {i === 0 ? "Primary" : "Secondary"}
+                    </span>
                     <a href={`mailto:${email}`}>{email}</a>
                   </li>
                 ))}
@@ -112,15 +130,15 @@ export default function Contact() {
 
             <Reveal className="contact__block">
               <p className="subhead">Business hours</p>
-              {/* PLACEHOLDER hours — confirm with client. */}
               <ul className="contact__list" role="list">
-                {COMPANY.hours.map((h) => (
+                {COMPANY.hours.weekly.map((h) => (
                   <li key={h.days}>
                     <span className="contact__name">{h.days}</span>
                     <span>{h.time}</span>
                   </li>
                 ))}
               </ul>
+              <p className="contact__hours-note">{COMPANY.hours.note}</p>
             </Reveal>
           </div>
 
@@ -138,7 +156,7 @@ export default function Contact() {
                 </Button>
               </div>
             ) : (
-              <form className="rfq" onSubmit={handleSubmit}>
+              <form className="rfq" onSubmit={handleSubmit} noValidate>
                 <h2 className="rfq__title">Request a quote</h2>
 
                 <div className="rfq__row">
@@ -147,19 +165,36 @@ export default function Contact() {
                     <input name="name" type="text" required autoComplete="name" />
                   </label>
                   <label className="field">
-                    <span className="field__label">Company<em>*</em></span>
-                    <input name="company" type="text" required autoComplete="organization" />
+                    <span className="field__label">Email<em>*</em></span>
+                    <input name="email" type="email" required autoComplete="email" />
                   </label>
                 </div>
 
                 <div className="rfq__row">
                   <label className="field">
-                    <span className="field__label">Email<em>*</em></span>
-                    <input name="email" type="email" required autoComplete="email" />
+                    <span className="field__label">Contact Number<em>*</em></span>
+                    <input
+                      name="contactNumber"
+                      type="tel"
+                      required
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      pattern="[6-9][0-9]{9}"
+                      placeholder="10-digit mobile number"
+                      aria-invalid={errors.contactNumber ? "true" : undefined}
+                      aria-describedby={
+                        errors.contactNumber ? "contactNumber-error" : undefined
+                      }
+                    />
+                    {errors.contactNumber && (
+                      <span className="field__error" id="contactNumber-error" role="alert">
+                        {errors.contactNumber}
+                      </span>
+                    )}
                   </label>
                   <label className="field">
-                    <span className="field__label">Phone</span>
-                    <input name="phone" type="tel" autoComplete="tel" />
+                    <span className="field__label">Company<em>*</em></span>
+                    <input name="company" type="text" required autoComplete="organization" />
                   </label>
                 </div>
 

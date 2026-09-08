@@ -3,7 +3,6 @@ import CTASection from "../components/CTASection.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
 import { CLIENTS, PROJECTS } from "../data/site.js";
-import { CLIENT_LOGOS } from "../components/ClientLogos.jsx";
 import "./Clients.css";
 
 export default function Clients() {
@@ -21,20 +20,23 @@ export default function Clients() {
             <span className="eyebrow">Selected customers</span>
             <h2>OEMs and suppliers we work with</h2>
             <p className="lead">
-              {/* PLACEHOLDER logos — display real customer marks only with written permission. */}
-              Logos shown as placeholders. HD Hyundai Construction Equipment and
-              Zoomlion anchor the construction-equipment work.
+              HD Hyundai Construction Equipment India and Zoomlion anchor the
+              construction-equipment work.
             </p>
           </Reveal>
           <RevealGroup className="clients-page__logos" step={0.05}>
-            {CLIENTS.map((client) => {
-              const LogoMark = CLIENT_LOGOS[client.id];
-              return (
-                <RevealItem className="clients-page__cell" key={client.id} title={client.name}>
-                  <LogoMark />
-                </RevealItem>
-              );
-            })}
+            {CLIENTS.map((client) => (
+              <RevealItem className="clients-page__cell" key={client.id} title={client.name}>
+                {/* Logos supplied by the client (round-1 feedback). */}
+                <img
+                  className="clients-page__logo"
+                  src={client.logo}
+                  alt={client.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </RevealItem>
+            ))}
           </RevealGroup>
         </div>
       </section>

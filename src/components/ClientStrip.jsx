@@ -1,6 +1,5 @@
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
 import { CLIENTS } from "../data/site.js";
-import { CLIENT_LOGOS } from "./ClientLogos.jsx";
 import "./ClientStrip.css";
 
 export default function ClientStrip() {
@@ -15,15 +14,18 @@ export default function ClientStrip() {
         </Reveal>
 
         <RevealGroup className="clients__grid" step={0.06}>
-          {CLIENTS.map((client) => {
-            const LogoMark = CLIENT_LOGOS[client.id];
-            return (
-              <RevealItem className="clients__cell" key={client.id} title={client.name}>
-                {/* PLACEHOLDER logo — generic mark, not the customer's real logo. */}
-                <LogoMark />
-              </RevealItem>
-            );
-          })}
+          {CLIENTS.map((client) => (
+            <RevealItem className="clients__cell" key={client.id} title={client.name}>
+              {/* Logos supplied by the client (round-1 feedback). */}
+              <img
+                className="clients__logo"
+                src={client.logo}
+                alt={client.name}
+                loading="lazy"
+                decoding="async"
+              />
+            </RevealItem>
+          ))}
         </RevealGroup>
       </div>
     </section>

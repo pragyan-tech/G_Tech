@@ -1,8 +1,29 @@
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
-import { COMPANY, STATEMENTS, TEAM } from "../data/site.js";
+import { STATEMENTS, LEADERSHIP, ORG } from "../data/site.js";
 import "./About.css";
+
+function Avatar({ name, initials, photo, size = "md" }) {
+  if (photo) {
+    return (
+      <img
+        className={`avatar avatar--${size}`}
+        src={photo}
+        alt={name}
+        loading="lazy"
+        decoding="async"
+        width="160"
+        height="160"
+      />
+    );
+  }
+  return (
+    <span className={`avatar avatar--${size} avatar--initials`} aria-hidden="true">
+      {initials}
+    </span>
+  );
+}
 
 export default function About() {
   return (
@@ -56,19 +77,20 @@ export default function About() {
             <h2>Who runs it</h2>
           </Reveal>
           <RevealGroup className="about__leaders">
-            {COMPANY.contacts.map((person) => (
+            {LEADERSHIP.map((person) => (
               <RevealItem as="article" className="leader" key={person.name}>
-                {/* PLACEHOLDER photo — replace with a real headshot. */}
-                <div className="leader__photo" aria-hidden="true">
-                  {person.name
-                    .replace(/^(Dr\.|Mr\.|Ms\.)\s*/, "")
-                    .split(" ")
-                    .map((w) => w[0])
-                    .join("")}
-                </div>
+                {/* PLACEHOLDER — Mrs. Aaditi Jadhav's photo is awaited from the
+                    client; initials avatar shown until it arrives. */}
+                <Avatar
+                  name={person.name}
+                  initials={person.initials}
+                  photo={person.photo}
+                  size="md"
+                />
                 <div>
                   <h3 className="leader__name">{person.name}</h3>
                   <p className="leader__role">{person.role}</p>
+                  {/* PLACEHOLDER BIO — confirm with client. */}
                   <p className="leader__bio">{person.bio}</p>
                 </div>
               </RevealItem>
@@ -77,29 +99,50 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section--navy">
+      <section className="section section--paper">
         <div className="container">
           <Reveal className="section__head">
-            <span className="eyebrow eyebrow--on-dark">Team strength</span>
-            <h2>{TEAM.total} people on the floor and behind it</h2>
+            <span className="eyebrow">Organization</span>
+            <h2>How the plant is organised</h2>
           </Reveal>
-          <RevealGroup className="team">
-            {TEAM.groups.map((group) => (
-              <RevealItem as="article" className="team__group" key={group.label}>
-                <div className="team__count">
-                  {group.count}
-                  <span>{group.label}</span>
-                </div>
-                <ul className="team__roles" role="list">
-                  {group.roles.map(([role, n]) => (
-                    <li key={role}>
-                      <span>{role}</span>
-                      <span className="team__n">{n}</span>
-                    </li>
-                  ))}
-                </ul>
+
+          <RevealGroup className="org" step={0.07}>
+            {ORG.tiers.map((tier) => (
+              <RevealItem className="org__tier" key={tier.id}>
+                <span className="org__level">{tier.label}</span>
+
+                {tier.person && (
+                  <div className="org__lead">
+                    <Avatar
+                      name={tier.person.name}
+                      initials={tier.person.initials}
+                      photo={tier.person.photo}
+                      size="sm"
+                    />
+                    <div>
+                      <span className="org__name">{tier.person.name}</span>
+                      <span className="org__role">{tier.person.role}</span>
+                    </div>
+                  </div>
+                )}
+
+                {tier.heads && (
+                  <ul className="org__heads" role="list">
+                    {tier.heads.map((head) => (
+                      <li key={head.name}>
+                        <span className="org__name">{head.name}</span>
+                        <span className="org__role">{head.role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </RevealItem>
             ))}
+
+            <RevealItem className="org__tier org__tier--floor">
+              <span className="org__level">Shop floor</span>
+              <p className="org__floor">{ORG.shopFloor}</p>
+            </RevealItem>
           </RevealGroup>
         </div>
       </section>

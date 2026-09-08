@@ -12,30 +12,85 @@ export const COMPANY = {
     "Chikhali, Pune – 411062",
     "Maharashtra, India",
   ],
+  /* development@ is the primary address, the gmail is the secondary. */
   emails: ["development@gtechent.com", "gtechenterprises21@gmail.com"],
+  /* Round-1 feedback: only the Plant Head's number is published on the site.
+     Mrs. Aaditi Jadhav's / Dr. Ganesh Jadhav's numbers are intentionally not listed. */
   contacts: [
     {
-      name: "Dr. Ganesh Jadhav",
-      role: "Co-founder & Director",
-      phone: "+91 80875 10160",
-      tel: "+918087510160",
-      wa: "918087510160",
-      bio: "Runs operations and customer programs; first point of contact for new build-to-print enquiries.",
-    },
-    {
       name: "Mr. Parag Patil",
-      role: "Co-founder & Director",
+      role: "Plant Head",
       phone: "+91 90217 74809",
       tel: "+919021774809",
       wa: "919021774809",
       bio: "Leads the shop floor, production planning, and quality.",
     },
   ],
-  /* PLACEHOLDER — confirm actual hours with client. */
-  hours: [
-    { days: "Monday – Saturday", time: "9:00 – 18:00 IST" },
-    { days: "Sunday", time: "Closed" },
+  /* Confirmed in round-1 feedback. */
+  hours: {
+    weekly: [{ days: "Monday – Saturday", time: "9:00 AM – 6:00 PM" }],
+    note: "24×7 service response for existing clients",
+  },
+};
+
+/* --- Leadership (round-1 update) ---
+   PLACEHOLDER photos/bios — confirm every bio with the client before launch. */
+export const LEADERSHIP = [
+  {
+    name: "Mrs. Aaditi Jadhav",
+    role: "Managing Director",
+    initials: "AJ",
+    // PLACEHOLDER — Awaiting Mrs. Aaditi Jadhav's photo from client.
+    photo: null,
+    // PLACEHOLDER BIO — confirm with client.
+    bio: "Mrs. Aaditi Jadhav is the founding Managing Director of GTech Enterprises, established in Chikhali, Pune in 2016. She sets the company's direction, holds its customer relationships, and drives investment in machines, measurement and people. Under her leadership GTech has grown into a build-to-print supplier for construction-equipment and industrial OEMs.",
+  },
+  {
+    name: "Mr. Parag Patil",
+    role: "Plant Head",
+    initials: "PP",
+    photo: "/assets/client-assets/team/parag-patil.jpeg",
+    // PLACEHOLDER BIO — confirm with client.
+    bio: "Mr. Parag Patil runs the GTech shop floor as Plant Head. He owns production planning, machining and fabrication operations, and in-process quality, and has spent his career on precision manufacturing floors. He is the day-to-day point of contact for live jobs and delivery schedules.",
+  },
+];
+
+/* --- Organization structure ---
+   From organization-chart.pdf (Doc GT/MR/F/20, Rev 00, 01.03.2023).
+   TODO (client): the chart titles Mr. Satish Patil as "Purchase Engineer /
+   Sr. Maintenance Engineer", Mr. Shankar Jadhav as "Sr. Quality Engineer" and
+   Miss. Sarita Mane as "Account / HR" — confirm the "Head" titles used below,
+   and confirm the shop-floor headcount (35 per round-1 feedback; the chart's
+   own tallies add up differently). */
+export const ORG = {
+  tiers: [
+    {
+      id: "md",
+      label: "Managing Director",
+      person: { name: "Mrs. Aaditi Jadhav", role: "Managing Director", initials: "AJ", photo: null },
+    },
+    {
+      id: "plant-head",
+      label: "Plant Head",
+      person: {
+        name: "Mr. Parag Patil",
+        role: "Plant Head",
+        initials: "PP",
+        photo: "/assets/client-assets/team/parag-patil.jpeg",
+      },
+    },
+    {
+      id: "department-heads",
+      label: "Department heads",
+      heads: [
+        { name: "Mr. Satish Patil", role: "Purchase Head" },
+        { name: "Miss. Sarita Mane", role: "Accounts & HR" },
+        { name: "Mr. Shankar Jadhav", role: "Quality Head" },
+        { name: "Mr. Ganesh Naphade", role: "Production Head" },
+      ],
+    },
   ],
+  shopFloor: "Shop-floor team: 35 members",
 };
 
 /* Primary navigation — real routes. */
@@ -58,7 +113,7 @@ export const PROOF_STATS = [
   { value: "~42 people", label: "Engineering + shop floor" },
   { value: "5-ton crane", label: "Heavy weldment handling" },
   { value: "Koike 300 A plasma", label: "HD, 3 × 8 m cutting bed" },
-  { value: "BFW VMC", label: "850 × 600 × 600 mm envelope" },
+  { value: "BFW VMC", label: "850 × 600 × 600 mm specification" },
 ];
 
 /* Capability overview cards — link to the sub-capability pages. */
@@ -66,14 +121,14 @@ export const CAPABILITIES = [
   {
     id: "cnc-machining",
     icon: "machining",
-    title: "CNC Machining",
-    body: "Turning up to Ø300 × 800 L on LMW centres with an 8-station hydraulic turret, plus VMC milling to an 850 × 600 × 600 mm envelope.",
+    title: "Machining",
+    body: "Turning up to Ø300 × 800 L on LMW centres with an 8-station hydraulic turret, plus VMC milling to an 850 × 600 × 600 mm specification.",
     to: "/capabilities/cnc-machining",
   },
   {
     id: "fabrication",
     icon: "fabrication",
-    title: "Structural Fabrication",
+    title: "Fabrication",
     body: "Koike HD plasma profiling on a 3 × 8 m bed, press-brake forming in the 200-ton class, and MIG / TIG / arc welding.",
     to: "/capabilities/fabrication",
   },
@@ -102,15 +157,15 @@ export const PROCESS_STEPS = [
 export const CAPABILITY_PAGES = {
   "cnc-machining": {
     slug: "cnc-machining",
-    title: "CNC Machining",
+    title: "Machining",
     eyebrow: "Capabilities",
     subline:
       "Turning and milling to the customer drawing — from single prototypes to repeat production lots.",
     intro: [
       "GTech runs three LMW CNC turning centres and a BFW vertical machining centre on the Chikhali floor. Turning covers work up to Ø300 × 800 L with an 8-station hydraulic turret and chuck sizes of 165, 200 and 300 mm; the smallest centre (LMW Smart Plus) handles fine work down to Ø165 × 300 L.",
-      "Milling is done on the BFW BMV 50 TC24, an 850 × 600 × 600 mm work envelope with 510 mm of head-stock (Z-axis) travel. Prismatic parts, flange faces, bores and drilled / tapped patterns are cut in one setup where the geometry allows. Programming is done from customer models and drawings, with first-article measurement before a lot is released.",
+      "Milling is done on the BFW BMV 50 TC24, an 850 × 600 × 600 mm machine specification with 510 mm of head-stock (Z-axis) travel. Prismatic parts, flange faces, bores and drilled / tapped patterns are cut in one setup where the geometry allows. Programming is done from customer models and drawings, with first-article measurement before a lot is released.",
     ],
-    specTitle: "Machining envelope",
+    specTitle: "Machining specification",
     specColumns: ["Machine", "Make", "Capacity"],
     specRows: [
       ["CNC turning centre", "LMW", "Ø300 × 800 L"],
@@ -119,7 +174,7 @@ export const CAPABILITY_PAGES = {
       ["Turret", "LMW", "8 stations, hydraulic indexing"],
       ["Chuck sizes", "LMW", "165 / 200 / 300 mm"],
       ["Max boring bar", "LMW", "Ø32 mm"],
-      ["Vertical machining centre", "BFW BMV 50 TC24", "850 × 600 × 600 mm envelope"],
+      ["Vertical machining centre", "BFW BMV 50 TC24", "850 × 600 × 600 mm specification"],
       ["VMC head-stock travel (Z)", "BFW", "510 mm"],
       ["VMC spindle nose to table", "BFW", "100 – 610 mm (to 810 mm with column riser)"],
       ["Radial drilling", "Rajkot SP", "Ø1.25 in"],
@@ -142,7 +197,7 @@ export const CAPABILITY_PAGES = {
   },
   fabrication: {
     slug: "fabrication",
-    title: "Structural Fabrication",
+    title: "Fabrication",
     eyebrow: "Capabilities",
     subline:
       "Profile cutting, forming and welding of steel structures and weldments, up to 5-ton crane handling.",
@@ -155,8 +210,7 @@ export const CAPABILITY_PAGES = {
     specRows: [
       ["Plasma cutting machine", "Koike", "300 A, HD, 3 × 8 m bed"],
       ["Press brake", "ADH", "200 ton"],
-      ["Press brake (heavy)", "—", "220 ton"],
-      ["Welding machine", "—", "600 A (MIG / TIG / arc)"],
+      ["Welding machine", "Jasic / ESAB", "600 A (MIG / TIG / arc)"],
       ["Overhead crane", "—", "5 ton"],
       ["Band saw", "Laxmi Industries", "Ø140 mm cutting"],
     ],
@@ -211,38 +265,75 @@ export const CAPABILITY_PAGES = {
   },
 };
 
-/* --- Full machine list (source PDF, slides 6–8) --- */
+/* --- Full machine list ---
+   Reconciled from machine-list-updated.pdf (Doc GT/OPR/F/01) and the updated
+   company profile deck ("Machines Available"). Identical units are consolidated
+   with a "(× n)" suffix.
+
+   TODO (client) — points to confirm between the two updated sources:
+   • machine-list-updated.pdf lists 7 welding machines (4 Jasic + 3 ESAB),
+     3 Kismat drills, a JMC turret mill, a SEW profile cutter, a DeWalt chop
+     saw and 8 Forte grinders — all added below. It does NOT list any press
+     brake, overhead crane or air compressor; those are carried over from the
+     deck. The press brake is recorded as ADH 200 ton (the old 220 ton row is
+     removed, per round-1 feedback).
+   • machine-list-updated.pdf gives the BFW VMC as "1300 × 700 mm" and the LMW
+     Smart Plus as "Ø165 × 500 L", and omits the Ø300 × 800 L LMW turning
+     centre. The deck-consistent figures (850 × 600 × 600 mm, Ø165 × 300 L,
+     three turning centres) are kept so the machine list matches the rest of
+     the site — confirm which set is current.
+   • Kismat drill GT/MC-05 shows capacity "6" in the PDF (unit unclear);
+     grouped here with the two "DIA 32" Kismat drills as Ø32 mm. */
 export const MACHINES = [
   { name: "CNC turning centre", make: "LMW", capacity: "Ø300 × 800 L", category: "Machining" },
-  { name: "CNC turning centre", make: "LMW", capacity: "Ø200 × 500 L", category: "Machining" },
+  { name: "CNC turning centre", make: "LMW LT 20 X", capacity: "Ø200 × 500 L", category: "Machining" },
   { name: "CNC turning centre", make: "LMW Smart Plus", capacity: "Ø165 × 300 L", category: "Machining" },
   { name: "Vertical machining centre (VMC)", make: "BFW BMV 50 TC24", capacity: "850 × 600 × 600 mm", category: "Machining" },
-  { name: "Radial drilling machine", make: "Rajkot SP", capacity: "Ø1.25 in", category: "Machining" },
-  { name: "Column drilling machine", make: "WMW", capacity: "Ø1.5 in", category: "Machining" },
-  { name: "Pillar drilling machine (× 2)", make: "Premier", capacity: "Ø1 in", category: "Machining" },
+  { name: "Turret milling machine", make: "JMC", capacity: "3 HP", category: "Machining" },
   { name: "Milling machine", make: "Vernier", capacity: "FN 3", category: "Machining" },
   { name: "Lathe", make: "Sagar", capacity: "6 ft bed", category: "Machining" },
   { name: "Micromill", make: "M1TR", capacity: "1210 × 460 × 460 mm", category: "Machining" },
+  { name: "Radial drilling machine", make: "Rajkot SP", capacity: "Ø1.25 in", category: "Machining" },
+  { name: "Column drilling machine", make: "WMW", capacity: "Ø1.5 in", category: "Machining" },
+  { name: "Pillar drilling machine (× 2)", make: "Premier", capacity: "Ø1 in", category: "Machining" },
+  { name: "Drilling machine (× 3)", make: "Kismat", capacity: "Ø32 mm", category: "Machining" },
   { name: "Smart tapping machine", make: "ITCO", capacity: "M25", category: "Machining" },
+  { name: "Tapping arm", make: "Smart Tap", capacity: "M16", category: "Machining" },
   { name: "Plasma cutting machine", make: "Koike", capacity: "300 A, HD, 3 × 8 m bed", category: "Fabrication" },
   { name: "Press brake", make: "ADH", capacity: "200 ton", category: "Fabrication" },
-  { name: "Press brake (heavy)", make: "—", capacity: "220 ton", category: "Fabrication" },
-  { name: "Welding machine", make: "—", capacity: "600 A (MIG / TIG / arc)", category: "Fabrication" },
-  { name: "Band saw cutting machine", make: "Laxmi Industries", capacity: "Ø140 mm cutting", category: "Fabrication" },
+  { name: "Welding machine (× 4)", make: "Jasic", capacity: "600 A (MIG / TIG / arc)", category: "Fabrication" },
+  { name: "Welding machine (× 3)", make: "ESAB", capacity: "600 A (MIG / TIG / arc)", category: "Fabrication" },
+  { name: "Profile cutting machine", make: "SEW", capacity: "up to 150 mm", category: "Fabrication" },
+  { name: "Bandsaw cutting machine", make: "Laxmi Industries", capacity: "Ø140 mm cutting", category: "Fabrication" },
+  { name: "Chop saw machine", make: "DeWalt", capacity: "355 mm blade", category: "Fabrication" },
   { name: "Overhead crane", make: "—", capacity: "5 ton", category: "Support" },
   { name: "Air compressors", make: "—", capacity: "10 / 7.5 / 5 HP", category: "Support" },
+  { name: "Grinder (× 8)", make: "Forte", capacity: "—", category: "Support" },
 ];
 
 export const MACHINE_CATEGORIES = ["All", "Machining", "Fabrication", "Support"];
 
-/* --- Clients --- */
+/* --- Clients & partners ---
+   Logos supplied by the client (round-1 feedback), stored in
+   /public/assets/client-assets/logos/. HD Hyundai Construction Equipment India
+   and Zoomlion are the anchor construction-equipment OEMs (name them first).
+
+   TODO (client): the source deck lists all of these together under "Esteemed
+   Customers" and does NOT separate build-to-print OEM customers from equipment
+   suppliers / partners (e.g. Atlas Copco, KYB). Confirm the split so this can
+   become two lists — "Customers" and "Suppliers & partners". DRDO added per
+   round-1 instruction. Some supplied logo files have a baked-in background
+   colour (SANY, Atlas Copco, Zoomlion) — request transparent-PNG versions. */
 export const CLIENTS = [
-  { id: "hd-hyundai", name: "HD Hyundai Construction Equipment" },
-  { id: "zoomlion", name: "Zoomlion" },
-  { id: "global-tooling", name: "Global Tooling" },
-  { id: "shan", name: "Shan Engineering Works" },
-  { id: "matchwell", name: "Matchwell Engineering" },
-  { id: "protech", name: "Protech Stampings" },
+  { id: "hd-hyundai", name: "HD Hyundai Construction Equipment India", logo: "/assets/client-assets/logos/hd-hyundai.png" },
+  { id: "zoomlion", name: "Zoomlion", logo: "/assets/client-assets/logos/zoomlion.png" },
+  { id: "sany", name: "SANY", logo: "/assets/client-assets/logos/sany.png" },
+  { id: "lt-construction", name: "L&T Construction", logo: "/assets/client-assets/logos/lt-construction.png" },
+  { id: "kyb", name: "KYB", logo: "/assets/client-assets/logos/kyb.png" },
+  { id: "conmat", name: "Conmat", logo: "/assets/client-assets/logos/conmat.png" },
+  { id: "atlas-copco", name: "Atlas Copco", logo: "/assets/client-assets/logos/atlas-copco.png" },
+  { id: "global-tooling", name: "Global Tooling", logo: "/assets/client-assets/logos/global-tooling.png" },
+  { id: "drdo", name: "DRDO", logo: "/assets/client-assets/logos/drdo.webp" },
 ];
 
 /* --- Featured / project work (source PDF products) ---
@@ -419,6 +510,56 @@ export const QMS_POINTS = [
     body: "Operators and welders are trained to the standard for the work they run, with refreshers as needed.",
   },
 ];
+
+/* --- Certifications ---
+   Certificate scans supplied by the client, held as PDFs in
+   /public/assets/client-assets/certifications/. Names / issuers / numbers read
+   directly off the scans. */
+export const CERTIFICATIONS = [
+  {
+    id: "iso-9001",
+    name: "ISO 9001:2015",
+    caption: "Quality Management System",
+    issuer: "ROHS Certification Pvt. Ltd.",
+    number: "25DQOA97",
+    file: "/assets/client-assets/certifications/cert-3.pdf",
+  },
+  {
+    id: "iso-14001",
+    name: "ISO 14001:2015",
+    caption: "Environmental Management System",
+    issuer: "QRO",
+    number: "305025051917E",
+    file: "/assets/client-assets/certifications/cert-1.pdf",
+  },
+  {
+    id: "iso-3834-2",
+    name: "ISO 3834-2:2016",
+    caption: "Quality requirements for fusion welding of metallic materials (Part 2)",
+    issuer: "U.S. Certification",
+    number: "US-GHPS-25-17256206",
+    file: "/assets/client-assets/certifications/cert-2.pdf",
+  },
+];
+
+/* --- Awards & recognition ---
+   Images in /public/assets/client-assets/awards/.
+   TODO (client): award-1.jpeg is a shelf photo showing an HD Hyundai "Valued
+   Business Partner" plaque and a "Quality Month 2025" appreciation award —
+   send flat scans / individual photos and confirm the exact wording. */
+export const AWARDS = [
+  {
+    id: "hd-hyundai-partner",
+    name: "HD Hyundai Construction Equipment India",
+    caption: "Valued Business Partner · Quality Month 2025 appreciation",
+    image: "/assets/client-assets/awards/award-1.jpeg",
+  },
+];
+
+/* Certifications section background — PLACEHOLDER (Unsplash, gtech-brand §7).
+   Future upgrade: /assets/client-assets/certifications/section-background.jpg
+   once the client supplies a real shop-floor photo. */
+export const CERT_SECTION_BG = "photo-1567789884554-0b844b597180";
 
 /* PLACEHOLDER — no calibration certificates transcribed from the source PDF. */
 export const MEASURING_EQUIPMENT = [

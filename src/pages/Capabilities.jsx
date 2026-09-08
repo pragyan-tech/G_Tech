@@ -10,7 +10,7 @@ export default function Capabilities() {
       <PageHero
         eyebrow="Capabilities"
         title="Machining and fabrication under one roof"
-        subline="GTech takes a build-to-print job from cut plate or bar stock to a finished, inspected part — CNC turning and milling, structural fabrication, and assembly on one floor in Chikhali, Pune."
+        subline="GTech takes a build-to-print job from cut plate or bar stock to a finished, inspected part — turning and milling, fabrication, and assembly on one floor in Chikhali, Pune."
       />
 
       <ProcessMap />

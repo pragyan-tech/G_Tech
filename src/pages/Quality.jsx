@@ -1,7 +1,15 @@
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
-import { STATEMENTS, QMS_POINTS, MEASURING_EQUIPMENT } from "../data/site.js";
+import {
+  STATEMENTS,
+  QMS_POINTS,
+  MEASURING_EQUIPMENT,
+  CERTIFICATIONS,
+  AWARDS,
+  CERT_SECTION_BG,
+  unsplash,
+} from "../data/site.js";
 import "./Quality.css";
 
 const INSPECTION_STEPS = [
@@ -78,22 +86,102 @@ export default function Quality() {
         </div>
       </section>
 
-      <section className="section section--paper">
-        <div className="container">
+      <section className="section cert-section">
+        {/* PLACEHOLDER background (Unsplash, gtech-brand §7) — swap for
+            /assets/client-assets/certifications/section-background.jpg when the
+            client supplies a real shop-floor photo. */}
+        <img
+          className="cert-section__bg"
+          src={unsplash(CERT_SECTION_BG, 1600, 900)}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+        <div className="cert-section__scrim" aria-hidden="true" />
+
+        <div className="container cert-section__inner">
           <Reveal className="section__head">
-            <span className="eyebrow">Certifications</span>
-            <h2>Certification status</h2>
+            <h2 className="cert-section__title">
+              <span>Our</span> <span className="cert-section__accent">Certifications</span>
+            </h2>
           </Reveal>
-          <Reveal className="q-cert">
-            {/* PLACEHOLDER — the source PDF describes a QMS but shows no certificate.
-                Do NOT publish an ISO claim until the client confirms it. */}
-            <p className="q-cert__flag">ISO 9001 — TODO CONFIRM WITH CLIENT</p>
-            <p className="q-cert__note">
-              GTech operates a quality management system with in-process and final
-              inspection. Any certification badge or certificate number must be
-              confirmed with the client before it appears on this page.
-            </p>
+
+          <RevealGroup className="cert-grid" step={0.07}>
+            {CERTIFICATIONS.map((cert) => (
+              <RevealItem as="article" className="cert-card" key={cert.id}>
+                <span className="cert-card__preview">
+                  {/* Certificate scans supplied as PDF — first page previewed here,
+                      full document opens in a new tab via the link below. */}
+                  <object
+                    data={`${cert.file}#toolbar=0&navpanes=0&view=FitH`}
+                    type="application/pdf"
+                    aria-label={`${cert.name} certificate preview`}
+                  >
+                    <span className="cert-card__fallback">{cert.name}</span>
+                  </object>
+                </span>
+                <span className="cert-card__caption">
+                  <span className="cert-card__name">{cert.name}</span>
+                  <span className="cert-card__sub">{cert.caption}</span>
+                  <span className="cert-card__meta">
+                    {cert.issuer} · {cert.number}
+                  </span>
+                  <a
+                    className="cert-card__link"
+                    href={cert.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View certificate (PDF) →
+                  </a>
+                </span>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      <section className="section cert-section">
+        <img
+          className="cert-section__bg"
+          src={unsplash(CERT_SECTION_BG, 1600, 900)}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+        <div className="cert-section__scrim" aria-hidden="true" />
+
+        <div className="container cert-section__inner">
+          <Reveal className="section__head">
+            <h2 className="cert-section__title">
+              <span>Awards</span>{" "}
+              <span className="cert-section__accent">&amp; Recognition</span>
+            </h2>
           </Reveal>
+
+          <RevealGroup
+            className={`cert-grid ${AWARDS.length === 1 ? "cert-grid--single" : ""}`}
+            step={0.07}
+          >
+            {AWARDS.map((award) => (
+              <RevealItem
+                as="a"
+                className="cert-card"
+                key={award.id}
+                href={award.image}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cert-card__preview cert-card__preview--photo">
+                  <img src={award.image} alt={award.name} loading="lazy" decoding="async" />
+                </span>
+                <span className="cert-card__caption">
+                  <span className="cert-card__name">{award.name}</span>
+                  <span className="cert-card__sub">{award.caption}</span>
+                </span>
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
       </section>
 
