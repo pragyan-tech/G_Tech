@@ -1,3 +1,8 @@
+/* Sliding marquee sits above the static grid (round-2 feedback). */
+.clients-page__marquee {
+  margin-bottom: var(--space-7);
+}
+
 .clients-page__logos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

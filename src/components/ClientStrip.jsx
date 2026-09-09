@@ -1,16 +1,9 @@
 import Reveal from "./ui/Reveal.jsx";
-import { CLIENTS } from "../data/site.js";
+import LogoMarquee from "./LogoMarquee.jsx";
 import "./ClientStrip.css";
 
-/* Continuously scrolling client-logo marquee (round-1 feedback, ref:
-   abhijeetengineers.com "Our Valuable Clients"). The list is rendered twice and
-   the track is translated by -50%, so one full set scrolls off exactly as its
-   copy scrolls in — no visible seam. Motion is pure CSS transform (GPU); the
-   whole strip pauses on hover and falls back to a scrollable row under
-   prefers-reduced-motion. */
+/* Home-page client band: heading + the shared sliding logo marquee. */
 export default function ClientStrip() {
-  const loop = [...CLIENTS, ...CLIENTS];
-
   return (
     <section className="section section--paper" id="clients">
       <div className="container">
@@ -22,24 +15,7 @@ export default function ClientStrip() {
         </Reveal>
       </div>
 
-      <div className="marquee" role="group" aria-label="Client and partner logos">
-        <ul className="marquee__track" role="list">
-          {loop.map((client, i) => {
-            const dup = i >= CLIENTS.length;
-            return (
-              <li className="marquee__item" key={`${client.id}-${i}`} aria-hidden={dup}>
-                <img
-                  className="marquee__logo"
-                  src={client.logo}
-                  alt={dup ? "" : client.name}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <LogoMarquee />
     </section>
   );
 }

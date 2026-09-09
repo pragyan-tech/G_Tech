@@ -1,0 +1,24 @@
+.plant-tour {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-navy-900);
+  isolation: isolate;
+}
+
+.plant-tour__poster,
+.plant-tour__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Video covers the poster once it starts; poster shows through on load / failure. */
+.plant-tour__video {
+  z-index: 1;
+}

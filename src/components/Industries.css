@@ -18,3 +18,9 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+/* Section sits on navy (round-2 rhythm) — keep the photo cards legible against
+   the dark ground with a hairline edge. */
+#industries .photocard {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}

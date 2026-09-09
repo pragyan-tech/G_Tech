@@ -95,6 +95,12 @@
 
 html {
   scroll-behavior: smooth;
+  /* Hide the scrollbar site-wide (round-2 feedback) — scrolling still works. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -256,6 +262,16 @@ p {
 .section--navy h2,
 .section--navy h3 {
   color: var(--color-white);
+}
+
+/* On navy: eyebrows go bright orange (AA on navy), lead / secondary text goes
+   paper-muted. Keeps sections readable after the round-2 background flip. */
+.section--navy .eyebrow {
+  color: var(--color-orange);
+}
+
+.section--navy .lead {
+  color: #c9d2da;
 }
 
 .section__head {

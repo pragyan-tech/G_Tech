@@ -81,6 +81,8 @@
   align-items: stretch;
   gap: 0;
   max-width: 720px;
+  /* Centre the whole chart within its section (round-2 fix). */
+  margin-inline: auto;
 }
 
 .org__tier {

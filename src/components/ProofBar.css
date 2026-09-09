@@ -1,5 +1,6 @@
 .proof {
-  background: var(--color-graphite);
+  /* Round-2 rhythm: the stats band joins the navy dark-section set. */
+  background: var(--color-navy);
   color: #c9d2da;
   padding-block: var(--space-6);
   scroll-margin-top: calc(var(--header-h) + var(--space-4));

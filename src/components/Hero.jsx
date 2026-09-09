@@ -1,18 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import Button from "./ui/Button.jsx";
 import { ArrowRight } from "./Icons.jsx";
-import { CAPABILITY_DECK_URL, HERO_VIDEO, HERO_VIDEO_POSTER } from "../data/site.js";
+import { CAPABILITY_DECK_URL, HERO_PHOTO, unsplash } from "../data/site.js";
 import "./Hero.css";
 
 export default function Hero() {
   const reduce = useReducedMotion();
-  const [videoOk, setVideoOk] = useState(true);
-
-  /* Play the plant-tour video only when motion is allowed and the file loads.
-     Otherwise the poster still frame stands in as a static background. */
-  const showVideo = !reduce && videoOk;
 
   const container = {
     hidden: {},
@@ -27,30 +21,15 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      <div className="hero__media" aria-hidden="true">
-        {/* Poster is the base layer: it covers the video load, a load failure,
-            and the prefers-reduced-motion path. */}
-        <img
-          className="hero__poster"
-          src={HERO_VIDEO_POSTER}
-          alt=""
-          fetchPriority="high"
-        />
-        {showVideo && (
-          <video
-            className="hero__video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={HERO_VIDEO_POSTER}
-            onError={() => setVideoOk(false)}
-          >
-            <source src={HERO_VIDEO} type="video/mp4" />
-          </video>
-        )}
-      </div>
+      {/* PLACEHOLDER background — swap for a real GTech shop-floor / plant photo.
+          gtech-brand §7: first-party photography only, no stock, no CGI. */}
+      <img
+        className="hero__bg"
+        src={unsplash(HERO_PHOTO, 1920, 1280)}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+      />
       <div className="hero__scrim" aria-hidden="true" />
 
       <div className="container hero__inner">

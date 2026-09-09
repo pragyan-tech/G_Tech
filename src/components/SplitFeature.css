@@ -1,0 +1,103 @@
+.split__grid {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split__grid {
+    grid-template-columns: 55fr 45fr;
+    gap: var(--space-8);
+  }
+  /* Reversed: media column comes first and is the narrower one. */
+  .split--reversed .split__grid {
+    grid-template-columns: 45fr 55fr;
+  }
+}
+
+/* Media first when stacked on mobile AND on the left on desktop. */
+.split--reversed .split__media {
+  order: -1;
+}
+
+/* --- text column --- */
+.split__eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.split__heading {
+  font-size: var(--text-3xl);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.split__heading--stack span {
+  display: block;
+}
+
+.split__accent {
+  color: var(--color-orange);
+}
+
+.split__body {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.split__cta {
+  margin-top: var(--space-6);
+}
+
+/* --- tone: light (paper bg) --- */
+.split--light {
+  background: var(--color-paper);
+}
+.split--light .split__heading {
+  color: var(--color-navy);
+}
+.split--light .split__body {
+  color: var(--color-steel);
+}
+
+/* --- tone: navy bg --- */
+.split--navy {
+  background: var(--color-navy);
+}
+.split--navy .split__eyebrow {
+  color: var(--color-orange);
+}
+.split--navy .split__heading {
+  color: var(--color-white);
+}
+.split--navy .split__body {
+  color: #c9d2da;
+}
+
+/* --- media column --- */
+.split__media {
+  width: 100%;
+}
+
+/* Framed still image (e.g. the Why GTech photo). */
+.split__frame {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-navy-900);
+}
+.split__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 900px) {
+  .split__frame {
+    aspect-ratio: 5 / 6;
+  }
+}

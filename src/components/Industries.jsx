@@ -5,7 +5,7 @@ import "./Industries.css";
 
 export default function Industries() {
   return (
-    <section className="section section--paper" id="industries">
+    <section className="section section--navy" id="industries">
       <div className="container">
         <Reveal className="section__head">
           <span className="eyebrow">Where our parts run</span>

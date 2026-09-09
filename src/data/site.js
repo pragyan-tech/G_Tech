@@ -592,13 +592,19 @@ export const MEASURING_EQUIPMENT = [
 ];
 
 /* --- Imagery helpers --- */
+/* Hero background — static shop-floor photo (PLACEHOLDER, gtech-brand §7).
+   Round-2 feedback reverted the hero from video back to this still image. */
 export const HERO_PHOTO = "photo-1567789884554-0b844b597180";
 
-/* Hero background video + poster (client-supplied, round-1 feedback).
-   The poster is shown while the video buffers, on load failure, and whenever
-   the visitor has prefers-reduced-motion set. */
-export const HERO_VIDEO = "/assets/client-assets/video/plant-tour.mp4";
-export const HERO_VIDEO_POSTER = "/assets/client-assets/video/plant-tour-poster.png";
+/* Plant-tour clip (client-supplied) + its poster still. Round-2 feedback moved
+   this out of the hero and into the "Who We Are" section. The poster stands in
+   while the video buffers, on load failure, and under prefers-reduced-motion. */
+export const PLANT_TOUR_VIDEO = "/assets/client-assets/video/plant-tour.mp4";
+export const PLANT_TOUR_POSTER = "/assets/client-assets/video/plant-tour-poster.png";
+
+/* "Why GTech" section image (PLACEHOLDER, Unsplash — industrial / precision-work
+   close-up; swap for a first-party GTech CNC lathe photo, gtech-brand §7). */
+export const WHY_GTECH_PHOTO = "photo-1504328345606-18bbc8c9d7d1";
 
 /* Fixed Unsplash CDN URL from a photo id. source.unsplash.com keyword search is
    discontinued — fixed ids only. Every use is a PLACEHOLDER (gtech-brand §7). */
