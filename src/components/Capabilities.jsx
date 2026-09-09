@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
 import Button from "./ui/Button.jsx";
-import { ArrowRight, ICONS } from "./Icons.jsx";
+import PhotoCard from "./ui/PhotoCard.jsx";
+import { ArrowRight } from "./Icons.jsx";
 import { CAPABILITIES } from "../data/site.js";
 import "./Capabilities.css";
 
@@ -20,21 +21,11 @@ export default function Capabilities() {
         </Reveal>
 
         <RevealGroup className="cap__grid">
-          {CAPABILITIES.map((cap) => {
-            const Icon = ICONS[cap.icon];
-            return (
-              <RevealItem as="article" className="cap-card" key={cap.id}>
-                <span className="cap-card__icon">
-                  <Icon />
-                </span>
-                <h3 className="cap-card__title">{cap.title}</h3>
-                <p className="cap-card__body">{cap.body}</p>
-                <Link className="cap-card__link" to={cap.to}>
-                  Learn more <ArrowRight />
-                </Link>
-              </RevealItem>
-            );
-          })}
+          {CAPABILITIES.map((cap) => (
+            <RevealItem key={cap.id}>
+              <PhotoCard photo={cap.photo} title={cap.title} to={cap.to} />
+            </RevealItem>
+          ))}
         </RevealGroup>
 
         <Reveal className="cap__more">

@@ -1,5 +1,5 @@
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
-import { ICONS } from "./Icons.jsx";
+import PhotoCard from "./ui/PhotoCard.jsx";
 import { INDUSTRIES } from "../data/site.js";
 import "./Industries.css";
 
@@ -17,21 +17,16 @@ export default function Industries() {
         </Reveal>
 
         <RevealGroup className="industries__row" step={0.07}>
-          {INDUSTRIES.map((industry) => {
-            const Icon = ICONS[industry.icon];
-            return (
-              <RevealItem
-                className={`industry ${industry.lead ? "industry--lead" : ""}`}
-                key={industry.id}
-              >
-                <span className="industry__icon">
-                  <Icon />
-                </span>
-                <span className="industry__label">{industry.label}</span>
-                {industry.lead && <span className="industry__tag">Primary</span>}
-              </RevealItem>
-            );
-          })}
+          {INDUSTRIES.map((industry) => (
+            <RevealItem key={industry.id}>
+              <PhotoCard
+                photo={industry.photo}
+                title={industry.label}
+                to={`/industries#${industry.id}`}
+                badge={industry.lead ? "Primary" : undefined}
+              />
+            </RevealItem>
+          ))}
         </RevealGroup>
       </div>
     </section>

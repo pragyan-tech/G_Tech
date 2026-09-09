@@ -108,33 +108,34 @@ export default function Quality() {
 
           <RevealGroup className="cert-grid" step={0.07}>
             {CERTIFICATIONS.map((cert) => (
-              <RevealItem as="article" className="cert-card" key={cert.id}>
-                <span className="cert-card__preview">
-                  {/* Certificate scans supplied as PDF — first page previewed here,
-                      full document opens in a new tab via the link below. */}
-                  <object
-                    data={`${cert.file}#toolbar=0&navpanes=0&view=FitH`}
-                    type="application/pdf"
-                    aria-label={`${cert.name} certificate preview`}
-                  >
-                    <span className="cert-card__fallback">{cert.name}</span>
-                  </object>
-                </span>
-                <span className="cert-card__caption">
-                  <span className="cert-card__name">{cert.name}</span>
-                  <span className="cert-card__sub">{cert.caption}</span>
-                  <span className="cert-card__meta">
-                    {cert.issuer} · {cert.number}
+              <RevealItem className="cert-cell" key={cert.id}>
+                {/* Whole card opens the certificate PDF in a new tab. The card
+                    lives inside the motion element so the CSS hover-lift isn't
+                    overridden by motion's inline transform. */}
+                <a
+                  className="cert-card"
+                  href={cert.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="cert-card__preview">
+                    <object
+                      data={`${cert.file}#toolbar=0&navpanes=0&view=FitH`}
+                      type="application/pdf"
+                      aria-label={`${cert.name} certificate preview`}
+                    >
+                      <span className="cert-card__fallback">{cert.name}</span>
+                    </object>
                   </span>
-                  <a
-                    className="cert-card__link"
-                    href={cert.file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View certificate (PDF) →
-                  </a>
-                </span>
+                  <span className="cert-card__caption">
+                    <span className="cert-card__name">{cert.name}</span>
+                    <span className="cert-card__sub">{cert.caption}</span>
+                    <span className="cert-card__meta">
+                      {cert.issuer} · {cert.number}
+                    </span>
+                    <span className="cert-card__link">View certificate (PDF) →</span>
+                  </span>
+                </a>
               </RevealItem>
             ))}
           </RevealGroup>
@@ -164,21 +165,21 @@ export default function Quality() {
             step={0.07}
           >
             {AWARDS.map((award) => (
-              <RevealItem
-                as="a"
-                className="cert-card"
-                key={award.id}
-                href={award.image}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="cert-card__preview cert-card__preview--photo">
-                  <img src={award.image} alt={award.name} loading="lazy" decoding="async" />
-                </span>
-                <span className="cert-card__caption">
-                  <span className="cert-card__name">{award.name}</span>
-                  <span className="cert-card__sub">{award.caption}</span>
-                </span>
+              <RevealItem className="cert-cell" key={award.id}>
+                <a
+                  className="cert-card"
+                  href={award.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="cert-card__preview cert-card__preview--photo">
+                    <img src={award.image} alt={award.name} loading="lazy" decoding="async" />
+                  </span>
+                  <span className="cert-card__caption">
+                    <span className="cert-card__name">{award.name}</span>
+                    <span className="cert-card__sub">{award.caption}</span>
+                  </span>
+                </a>
               </RevealItem>
             ))}
           </RevealGroup>

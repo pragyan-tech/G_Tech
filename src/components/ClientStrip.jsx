@@ -1,8 +1,16 @@
-import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import Reveal from "./ui/Reveal.jsx";
 import { CLIENTS } from "../data/site.js";
 import "./ClientStrip.css";
 
+/* Continuously scrolling client-logo marquee (round-1 feedback, ref:
+   abhijeetengineers.com "Our Valuable Clients"). The list is rendered twice and
+   the track is translated by -50%, so one full set scrolls off exactly as its
+   copy scrolls in — no visible seam. Motion is pure CSS transform (GPU); the
+   whole strip pauses on hover and falls back to a scrollable row under
+   prefers-reduced-motion. */
 export default function ClientStrip() {
+  const loop = [...CLIENTS, ...CLIENTS];
+
   return (
     <section className="section section--paper" id="clients">
       <div className="container">
@@ -12,21 +20,25 @@ export default function ClientStrip() {
             Parts running in construction equipment across India — and beyond
           </h2>
         </Reveal>
+      </div>
 
-        <RevealGroup className="clients__grid" step={0.06}>
-          {CLIENTS.map((client) => (
-            <RevealItem className="clients__cell" key={client.id} title={client.name}>
-              {/* Logos supplied by the client (round-1 feedback). */}
-              <img
-                className="clients__logo"
-                src={client.logo}
-                alt={client.name}
-                loading="lazy"
-                decoding="async"
-              />
-            </RevealItem>
-          ))}
-        </RevealGroup>
+      <div className="marquee" role="group" aria-label="Client and partner logos">
+        <ul className="marquee__track" role="list">
+          {loop.map((client, i) => {
+            const dup = i >= CLIENTS.length;
+            return (
+              <li className="marquee__item" key={`${client.id}-${i}`} aria-hidden={dup}>
+                <img
+                  className="marquee__logo"
+                  src={client.logo}
+                  alt={dup ? "" : client.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

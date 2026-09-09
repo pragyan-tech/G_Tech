@@ -127,18 +127,25 @@
   margin-inline: auto;
 }
 
+/* Motion wrapper — a bare grid cell so the card inside keeps its CSS hover. */
+.cert-cell {
+  display: grid;
+}
+
 .cert-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   overflow: hidden;
   color: var(--color-ink);
+  cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 .cert-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 a.cert-card:focus-visible {

@@ -38,6 +38,8 @@
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: -0.01em;
+  /* Steady width while the count-up runs. */
+  font-variant-numeric: tabular-nums;
 }
 
 .proof__label {

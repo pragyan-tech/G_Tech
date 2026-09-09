@@ -13,50 +13,92 @@
   line-height: 1.36;
 }
 
-.clients__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+/* --- Marquee --- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  /* Edge fade so logos appear / disappear gracefully instead of hard-cutting. */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
 }
 
-@media (min-width: 640px) {
-  .clients__grid {
-    grid-template-columns: repeat(3, 1fr);
+.marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+/* Pause when the visitor hovers anywhere on the strip. */
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Two identical sets in the track → -50% is exactly one set wide. */
+    transform: translateX(-50%);
   }
 }
 
-@media (min-width: 1024px) {
-  .clients__grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--space-5);
-  }
-}
-
-.clients__cell {
+.marquee__item {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4);
+  padding-inline: var(--space-6);
+  min-width: 160px;
   min-height: 72px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-white);
-  color: var(--color-steel);
-  filter: grayscale(1);
-  opacity: 0.75;
-  transition: filter var(--transition), opacity var(--transition), color var(--transition), border-color var(--transition);
 }
 
-.clients__cell:hover {
-  filter: grayscale(0);
-  opacity: 1;
-  color: var(--color-navy);
-  border-color: var(--color-steel);
+@media (min-width: 768px) {
+  .marquee__item {
+    padding-inline: var(--space-7);
+    min-width: 200px;
+  }
 }
 
-.clients__logo {
+.marquee__logo {
   width: auto;
-  max-width: 100%;
-  max-height: 44px;
+  max-width: 180px;
+  max-height: 48px;
   object-fit: contain;
+  /* Full colour — client wants logos shown as supplied (round-1 feedback). */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .marquee__track {
+    animation: none !important;
+    will-change: auto;
+  }
+  /* Drop the duplicate set — the row is a plain horizontal scroller now. */
+  .marquee__item[aria-hidden="true"] {
+    display: none;
+  }
 }

@@ -1,0 +1,100 @@
+.photocard {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-navy);
+  isolation: isolate;
+  color: var(--color-white);
+}
+
+.photocard__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base gradient — transparent at top, dark at the bottom. */
+.photocard__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 34%,
+    rgba(6, 27, 44, 0.5) 66%,
+    rgba(6, 27, 44, 0.92) 100%
+  );
+}
+
+/* Second layer, faded in on hover so the darkening transitions cleanly
+   (gradients themselves can't be transitioned). */
+.photocard__scrim {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 24%,
+    rgba(6, 27, 44, 0.55) 58%,
+    rgba(6, 27, 44, 0.55) 100%
+  );
+  transition: opacity var(--transition);
+}
+
+.photocard__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-5);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.photocard__badge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-orange);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (hover: hover) {
+  .photocard:hover .photocard__photo {
+    transform: scale(1.05);
+  }
+  .photocard:hover .photocard__scrim {
+    opacity: 1;
+  }
+}
+
+.photocard:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photocard__photo {
+    transition: none;
+  }
+  .photocard:hover .photocard__photo {
+    transform: none;
+  }
+}

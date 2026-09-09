@@ -116,7 +116,9 @@ export const PROOF_STATS = [
   { value: "BFW VMC", label: "850 × 600 × 600 mm specification" },
 ];
 
-/* Capability overview cards — link to the sub-capability pages. */
+/* Capability overview cards — link to the sub-capability pages.
+   `photo` is an Unsplash id rendered via unsplash(); the home page shows these
+   as portrait photo cards. */
 export const CAPABILITIES = [
   {
     id: "cnc-machining",
@@ -124,6 +126,8 @@ export const CAPABILITIES = [
     title: "Machining",
     body: "Turning up to Ø300 × 800 L on LMW centres with an 8-station hydraulic turret, plus VMC milling to an 850 × 600 × 600 mm specification.",
     to: "/capabilities/cnc-machining",
+    // PLACEHOLDER — replace with real GTech shop photo (CNC lathe / milling close-up)
+    photo: "photo-1581092160562-40aa08e78837",
   },
   {
     id: "fabrication",
@@ -131,6 +135,8 @@ export const CAPABILITIES = [
     title: "Fabrication",
     body: "Koike HD plasma profiling on a 3 × 8 m bed, press-brake forming in the 200-ton class, and MIG / TIG / arc welding.",
     to: "/capabilities/fabrication",
+    // PLACEHOLDER — replace with real GTech shop photo (welding sparks / heavy fabrication)
+    photo: "photo-1504328345606-18bbc8c9d7d1",
   },
   {
     id: "assembly",
@@ -138,6 +144,8 @@ export const CAPABILITIES = [
     title: "Assembly & Finishing",
     body: "Fixtured sub-assembly and welded structures with a 5-ton crane — prototype through mid-volume production runs.",
     to: "/capabilities/assembly-and-finishing",
+    // PLACEHOLDER — replace with real GTech shop photo (assembly floor / weldment)
+    photo: "photo-1587293852726-70cdb56c2866",
   },
 ];
 
@@ -382,13 +390,17 @@ export const PROJECTS = [
   },
 ];
 
-/* --- Industries, with typical parts (Construction leads) --- */
+/* --- Industries, with typical parts (Construction leads) ---
+   `photo` is an Unsplash id rendered via unsplash(); the home page shows these
+   as portrait photo cards linking to the matching section on /industries. */
 export const INDUSTRIES = [
   {
     id: "construction",
     icon: "construction",
     label: "Construction & Earth-moving",
     lead: true,
+    // PLACEHOLDER — replace with real GTech shop photo (excavator / crane component)
+    photo: "photo-1487875961445-47a00398c267",
     blurb:
       "The core of GTech's work. Machined and fabricated parts that go into excavators, loaders, cranes and compaction equipment for OEMs including HD Hyundai Construction Equipment and Zoomlion.",
     parts: [
@@ -402,6 +414,8 @@ export const INDUSTRIES = [
     id: "automotive",
     icon: "automotive",
     label: "Automotive",
+    // PLACEHOLDER — replace with real GTech shop photo (auto parts / assembly)
+    photo: "photo-1552519507-da3b142c6e3d",
     blurb:
       "Machined components and sheet-metal / formed parts for automotive tier suppliers, built to print with first-article and process controls.",
     parts: [
@@ -414,6 +428,8 @@ export const INDUSTRIES = [
     id: "energy",
     icon: "energy",
     label: "Energy",
+    // PLACEHOLDER — replace with real GTech shop photo (turbine / power infrastructure part)
+    photo: "photo-1466611653911-95081537e5b7",
     blurb:
       "Fabricated structures and machined parts for energy-sector equipment, where dimensional accuracy and weld quality matter.",
     parts: [
@@ -426,6 +442,8 @@ export const INDUSTRIES = [
     id: "heavy-machinery",
     icon: "heavyMachinery",
     label: "Heavy Machinery",
+    // PLACEHOLDER — replace with real GTech shop photo (industrial crane / heavy equipment)
+    photo: "photo-1504917595217-d4dc5ebe6122",
     blurb:
       "Larger machined and welded parts for industrial and process machinery builders, handled with the 5-ton crane and the full turning / VMC range.",
     parts: [
@@ -438,6 +456,8 @@ export const INDUSTRIES = [
     id: "tooling",
     icon: "tooling",
     label: "Industrial Tooling",
+    // PLACEHOLDER — replace with real GTech shop photo (dies / moulds / precision tooling)
+    photo: "photo-1621905251189-08b45d6a269e",
     blurb:
       "Precision machined parts, jigs and fixtures for tooling and sheet-metal specialists such as Global Tooling and Protech Stampings.",
     parts: [
@@ -573,6 +593,12 @@ export const MEASURING_EQUIPMENT = [
 
 /* --- Imagery helpers --- */
 export const HERO_PHOTO = "photo-1567789884554-0b844b597180";
+
+/* Hero background video + poster (client-supplied, round-1 feedback).
+   The poster is shown while the video buffers, on load failure, and whenever
+   the visitor has prefers-reduced-motion set. */
+export const HERO_VIDEO = "/assets/client-assets/video/plant-tour.mp4";
+export const HERO_VIDEO_POSTER = "/assets/client-assets/video/plant-tour-poster.png";
 
 /* Fixed Unsplash CDN URL from a photo id. source.unsplash.com keyword search is
    discontinued — fixed ids only. Every use is a PLACEHOLDER (gtech-brand §7). */
