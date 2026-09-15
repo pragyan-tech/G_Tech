@@ -3,6 +3,13 @@ import Logo from "./Logo.jsx";
 import { COMPANY, NAV_LINKS } from "../data/site.js";
 import "./Footer.css";
 
+/**
+ * Site footer — brand blurb, address, contact list, and site-map nav.
+ * Reads company/contact/nav content entirely from `site.js`. Rendered once
+ * in `Layout.jsx` below every page.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Footer() {
   const year = new Date().getFullYear();
 

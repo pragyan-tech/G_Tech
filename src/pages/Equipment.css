@@ -112,6 +112,8 @@
   color: var(--color-orange-600);
 }
 .equip__tag--fabrication {
+  /* One-off badge tint, not in the gtech-brand palette and used only here —
+     left as a literal rather than adding a single-use token. */
   background: #dceefb;
   color: #0a5a8a;
 }

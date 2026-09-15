@@ -6,6 +6,12 @@ import { ArrowRight } from "./Icons.jsx";
 import { PROJECTS } from "../data/site.js";
 import "./FeaturedWork.css";
 
+/**
+ * Home-page "Parts we deliver" section — the first 3 entries from `PROJECTS`
+ * in site.js, linking through to the full list on `/clients`.
+ *
+ * @returns {JSX.Element}
+ */
 export default function FeaturedWork() {
   return (
     <section className="section">

@@ -6,6 +6,20 @@ import Button from "./ui/Button.jsx";
 import { NAV_LINKS } from "../data/site.js";
 import "./Navbar.css";
 
+/**
+ * Sticky site header — logo, primary nav links, a "Request a Quote" CTA, and
+ * a mobile burger menu that opens a slide-in drawer. Rendered once in
+ * `Layout.jsx` above every page.
+ *
+ * Non-obvious behaviors:
+ * - Adds `nav--scrolled` once the page scrolls past 8px, to switch the logo
+ *   wordmark and background from transparent-on-hero to solid.
+ * - Locks `document.body` scroll while the mobile drawer is open.
+ * - The drawer's slide-in animation is skipped (fades instead) under
+ *   `prefers-reduced-motion`.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

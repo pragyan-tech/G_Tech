@@ -4,6 +4,13 @@ import CapabilityGrid from "../components/CapabilityGrid.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 
+/**
+ * Capabilities page (`/capabilities`) — process map ("how a job flows"),
+ * then a grid linking to each capability's detail page. Distinct from
+ * `components/CapabilitiesTeaser.jsx`, the shorter home-page version.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Capabilities() {
   return (
     <>

@@ -5,6 +5,14 @@ import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import { CAPABILITY_PAGES } from "../data/site.js";
 
+/**
+ * Capability detail page (`/capabilities/:slug`) — intro copy, a spec table,
+ * and typical parts/materials lists, all sourced from `CAPABILITY_PAGES[slug]`
+ * in site.js. Redirects to `/capabilities` if the slug doesn't match a known
+ * capability.
+ *
+ * @returns {JSX.Element}
+ */
 export default function CapabilityDetail() {
   const { slug } = useParams();
   const page = CAPABILITY_PAGES[slug];

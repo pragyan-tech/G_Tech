@@ -2,15 +2,25 @@ import { Link } from "react-router-dom";
 import { unsplash } from "../../data/site.js";
 import "./PhotoCard.css";
 
-/* Portrait photo card with a bottom-gradient title overlay.
-   Round-1 feedback, ref: abhijeetengineers.com capability / industry cards.
-
-   - Tall 3:4 photo fills the card, no padding.
-   - Dark gradient over the lower half; white centred title on it.
-   - Flat bottom edge (no wavy divider).
-   - Whole card is the link. Hover zooms the photo to 1.05 over 500ms ease-out
-     and deepens the gradient a touch.
-   - `photo` is an Unsplash id (PLACEHOLDER — swap for a real GTech shop photo). */
+/**
+ * Portrait photo card with a bottom-gradient title overlay. Used for the
+ * capability and industry teaser grids on the home page.
+ *
+ * Round-1 feedback, ref: abhijeetengineers.com capability / industry cards.
+ * - Tall 3:4 photo fills the card, no padding.
+ * - Dark gradient over the lower half; white centred title on it.
+ * - Flat bottom edge (no wavy divider).
+ * - Whole card is the link. Hover zooms the photo to 1.05 over 500ms ease-out
+ *   and deepens the gradient a touch.
+ *
+ * @param {Object} props
+ * @param {string} props.photo - Unsplash photo id (PLACEHOLDER — swap for a real GTech shop photo), passed to `unsplash()`.
+ * @param {string} props.title - Card title, shown over the gradient.
+ * @param {string} [props.to] - Route to link to. Renders a `<Link>` when set, a plain `<div>` otherwise.
+ * @param {string} [props.badge] - Optional small label (e.g. "Primary") shown in the top corner.
+ * @param {string} [props.className=""] - Extra class names appended to the card.
+ * @returns {JSX.Element}
+ */
 export default function PhotoCard({ photo, title, to, badge, className = "" }) {
   const body = (
     <>

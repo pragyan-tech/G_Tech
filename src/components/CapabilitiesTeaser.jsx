@@ -4,9 +4,17 @@ import Button from "./ui/Button.jsx";
 import PhotoCard from "./ui/PhotoCard.jsx";
 import { ArrowRight } from "./Icons.jsx";
 import { CAPABILITIES } from "../data/site.js";
-import "./Capabilities.css";
+import "./CapabilitiesTeaser.css";
 
-export default function Capabilities() {
+/**
+ * Home-page teaser for the three capability areas (machining, fabrication,
+ * assembly & finishing) — portrait photo cards linking to their capability
+ * detail pages. Distinct from `pages/Capabilities.jsx`, the full standalone
+ * `/capabilities` route.
+ *
+ * @returns {JSX.Element}
+ */
+export default function CapabilitiesTeaser() {
   return (
     <section className="section" id="capabilities">
       <div className="container">

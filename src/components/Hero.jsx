@@ -5,6 +5,14 @@ import { ArrowRight } from "./Icons.jsx";
 import { CAPABILITY_DECK_URL, HERO_PHOTO, unsplash } from "../data/site.js";
 import "./Hero.css";
 
+/**
+ * Home-page hero — full-bleed background photo, headline, subline, and two
+ * CTAs. Content staggers in on mount (not scroll-triggered, since it's
+ * already in view on load); the stagger collapses to a plain fade under
+ * `prefers-reduced-motion`.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Hero() {
   const reduce = useReducedMotion();
 

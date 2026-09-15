@@ -10,6 +10,14 @@ const CHECKS = [
   "Material and process traceability by job",
 ];
 
+/**
+ * Home-page quality section — navy band with a short quality pitch and a
+ * checklist of QMS highlights, linking through to the full `/quality` page.
+ * `CHECKS` is local (not in site.js) since it's a condensed, page-specific
+ * summary rather than reused content.
+ *
+ * @returns {JSX.Element}
+ */
 export default function QualityBand() {
   return (
     <section className="section section--navy quality">

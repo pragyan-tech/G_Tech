@@ -1,7 +1,19 @@
-/* Site content for GTech Enterprises.
-   Copy follows .claude/skills/gtech-brand: proof-led, no "solutions / world-class".
-   Machine specs and figures are transcribed from the source company profile PDF. */
+/* ==========================================================================
+   Site content for GTech Enterprises.
 
+   This file is the single source of truth for all text, specs, and media
+   references on the site. To change any copy, number, or image path, edit
+   here — not in the component that renders it. Components should only
+   import from this file and lay the data out; they should not hardcode
+   content.
+
+   Copy follows .claude/skills/gtech-brand: proof-led, no "solutions / world-class".
+   Machine specs and figures are transcribed from the source company profile PDF.
+   ========================================================================== */
+
+/* === COMPANY ===
+   Core facts, address, contact numbers/emails, business hours.
+   Consumed by: Footer.jsx, Contact.jsx. */
 export const COMPANY = {
   name: "GTech Enterprises",
   since: 2016,
@@ -33,8 +45,10 @@ export const COMPANY = {
   },
 };
 
-/* --- Leadership (round-1 update) ---
-   PLACEHOLDER photos/bios — confirm every bio with the client before launch. */
+/* === LEADERSHIP ===
+   Consumed by: pages/About.jsx (leadership cards).
+
+   (round-1 update) PLACEHOLDER photos/bios — confirm every bio with the client before launch. */
 export const LEADERSHIP = [
   {
     name: "Mrs. Aaditi Jadhav",
@@ -55,7 +69,9 @@ export const LEADERSHIP = [
   },
 ];
 
-/* --- Organization structure ---
+/* === ORGANIZATION ===
+   Consumed by: pages/About.jsx (org-chart tiers).
+
    From organization-chart.pdf (Doc GT/MR/F/20, Rev 00, 01.03.2023).
    TODO (client): the chart titles Mr. Satish Patil as "Purchase Engineer /
    Sr. Maintenance Engineer", Mr. Shankar Jadhav as "Sr. Quality Engineer" and
@@ -93,7 +109,8 @@ export const ORG = {
   shopFloor: "Shop-floor team: 35 members",
 };
 
-/* Primary navigation — real routes. */
+/* === NAVIGATION ===
+   Primary navigation — real routes. Consumed by: Navbar.jsx, Footer.jsx (site-map column). */
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "Capabilities", to: "/capabilities" },
@@ -105,9 +122,13 @@ export const NAV_LINKS = [
   { label: "Contact", to: "/contact" },
 ];
 
-/* PLACEHOLDER copy deck link — swap for the real hosted PDF before launch. */
+/* PLACEHOLDER copy deck link — swap for the real hosted PDF before launch.
+   Consumed by: Hero.jsx ("Download Capability Deck" button). */
 export const CAPABILITY_DECK_URL = "#capability-deck";
 
+/* === PROOF STATS ===
+   Home-page stat strip. Consumed by: ProofBar.jsx (numbers animate up on
+   scroll into view — see StatValue in that file). */
 export const PROOF_STATS = [
   { value: "Since 2016", label: "One plant, Chikhali — Pune" },
   { value: "~42 people", label: "Engineering + shop floor" },
@@ -116,9 +137,11 @@ export const PROOF_STATS = [
   { value: "BFW VMC", label: "850 × 600 × 600 mm specification" },
 ];
 
-/* Capability overview cards — link to the sub-capability pages.
-   `photo` is an Unsplash id rendered via unsplash(); the home page shows these
-   as portrait photo cards. */
+/* === CAPABILITIES (overview cards) ===
+   Consumed by: components/CapabilitiesTeaser.jsx (home page), CapabilityGrid.jsx
+   (/capabilities page). `photo` is an Unsplash id rendered via unsplash(); the
+   home page shows these as portrait photo cards. `id` also keys into
+   CAPABILITY_PAGES below for the detail-page content. */
 export const CAPABILITIES = [
   {
     id: "cnc-machining",
@@ -149,9 +172,10 @@ export const CAPABILITIES = [
   },
 ];
 
-/* Raw material → dispatch process map, rendered as the "How the job flows"
-   animated cards on /capabilities. `description` is the one-line card copy;
-   `icon` keys into ICONS (see Icons.jsx). */
+/* === PROCESS STEPS ===
+   Raw material → dispatch process map, rendered as the "How the job flows"
+   animated cards on /capabilities. Consumed by: components/ProcessMap.jsx.
+   `description` is the one-line card copy; `icon` keys into ICONS (see Icons.jsx). */
 export const PROCESS_STEPS = [
   {
     id: "material",
@@ -211,7 +235,10 @@ export const PROCESS_STEPS = [
   },
 ];
 
-/* --- Sub-capability page content --- */
+/* === CAPABILITY DETAIL PAGES ===
+   Full content for each /capabilities/:slug page. Consumed by:
+   pages/CapabilityDetail.jsx, keyed by the `slug` param against these
+   top-level keys (which match CAPABILITIES[].id). */
 export const CAPABILITY_PAGES = {
   "cnc-machining": {
     slug: "cnc-machining",
@@ -323,7 +350,9 @@ export const CAPABILITY_PAGES = {
   },
 };
 
-/* --- Full machine list ---
+/* === MACHINES (full equipment list) ===
+   Consumed by: pages/Equipment.jsx (filterable/searchable table).
+
    Reconciled from machine-list-updated.pdf (Doc GT/OPR/F/01) and the updated
    company profile deck ("Machines Available"). Identical units are consolidated
    with a "(× n)" suffix.
@@ -369,9 +398,13 @@ export const MACHINES = [
   { name: "Grinder (× 8)", make: "Forte", capacity: "—", category: "Support" },
 ];
 
+/* Filter chip values for pages/Equipment.jsx — must match the `category`
+   values used in MACHINES above. */
 export const MACHINE_CATEGORIES = ["All", "Machining", "Fabrication", "Support"];
 
-/* --- Clients & partners ---
+/* === CLIENTS & PARTNERS ===
+   Consumed by: components/LogoMarquee.jsx (home + /clients scrolling strip).
+
    Logos supplied by the client (round-1 feedback), stored in
    /public/assets/client-assets/logos/. HD Hyundai Construction Equipment India
    and Zoomlion are the anchor construction-equipment OEMs (name them first).
@@ -394,9 +427,12 @@ export const CLIENTS = [
   { id: "drdo", name: "DRDO", logo: "/assets/client-assets/logos/drdo.webp" },
 ];
 
-/* --- Featured / project work (source PDF products) ---
-   PLACEHOLDER images (Unsplash) — replace every one with a first-party photo
-   of the actual delivered part (gtech-brand §7). */
+/* === PROJECTS (featured / delivered work) ===
+   Consumed by: components/FeaturedWork.jsx (home, first 3), pages/Clients.jsx
+   (full list), via components/ProjectCard.jsx.
+
+   Source PDF products. PLACEHOLDER images (Unsplash) — replace every one with
+   a first-party photo of the actual delivered part (gtech-brand §7). */
 export const PROJECTS = [
   {
     id: "hydraulic-clamps",
@@ -440,7 +476,10 @@ export const PROJECTS = [
   },
 ];
 
-/* --- Industries, with typical parts (Construction leads) ---
+/* === INDUSTRIES ===
+   Consumed by: components/IndustriesTeaser.jsx (home page cards),
+   pages/Industries.jsx (full sections, one per entry, anchored by `id`).
+   Construction leads (see `lead: true`), with typical parts per industry.
    `photo` is an Unsplash id rendered via unsplash(); the home page shows these
    as portrait photo cards linking to the matching section on /industries. */
 export const INDUSTRIES = [
@@ -518,7 +557,11 @@ export const INDUSTRIES = [
   },
 ];
 
-/* --- Team strength (source PDF, slide 9) --- */
+/* === TEAM ===
+   Team strength (source PDF, slide 9). Not currently rendered by any page —
+   kept here as sourced content for future use (e.g. an About-page headcount
+   breakdown); TEAM.total (42) is also hand-copied into PROOF_STATS and
+   COMPANY-adjacent copy elsewhere, so update both places if this changes. */
 export const TEAM = {
   total: 42,
   groups: [
@@ -548,7 +591,10 @@ export const TEAM = {
   ],
 };
 
-/* --- Company statements, rewritten concise per gtech-brand voice --- */
+/* === STATEMENTS ===
+   Company quality/vision/mission statements, rewritten concise per
+   gtech-brand voice. Consumed by: pages/Quality.jsx (quality), pages/About.jsx
+   (vision, mission). */
 export const STATEMENTS = {
   quality:
     "GTech Enterprises manufactures machined and fabricated components to the customer's drawing, at the agreed cost and delivery date. We run a quality management system with in-process and final inspection, review results against targets every month, and train our people to hold that standard.",
@@ -558,6 +604,8 @@ export const STATEMENTS = {
     "Deliver parts that match the drawing, the quantity and the date, every time. Reinvest in machines, measurement and skilled people so the next job is tighter than the last.",
 };
 
+/* === QMS POINTS ===
+   Consumed by: pages/Quality.jsx ("Five things we hold to" cards). */
 export const QMS_POINTS = [
   {
     title: "In-process inspection",
@@ -581,7 +629,9 @@ export const QMS_POINTS = [
   },
 ];
 
-/* --- Certifications ---
+/* === CERTIFICATIONS ===
+   Consumed by: pages/Quality.jsx (certificate cards, each linking to its PDF).
+
    Certificate scans supplied by the client, held as PDFs in
    /public/assets/client-assets/certifications/. Names / issuers / numbers read
    directly off the scans. */
@@ -612,8 +662,9 @@ export const CERTIFICATIONS = [
   },
 ];
 
-/* --- Awards & recognition ---
-   Images in /public/assets/client-assets/awards/.
+/* === AWARDS & RECOGNITION ===
+   Consumed by: pages/Quality.jsx (awards cards). Images in
+   /public/assets/client-assets/awards/.
    TODO (client): award-1.jpeg is a shelf photo showing an HD Hyundai "Valued
    Business Partner" plaque and a "Quality Month 2025" appreciation award —
    send flat scans / individual photos and confirm the exact wording. */
@@ -627,11 +678,14 @@ export const AWARDS = [
 ];
 
 /* Certifications section background — PLACEHOLDER (Unsplash, gtech-brand §7).
+   Consumed by: pages/Quality.jsx (certifications + awards section backgrounds).
    Future upgrade: /assets/client-assets/certifications/section-background.jpg
    once the client supplies a real shop-floor photo. */
 export const CERT_SECTION_BG = "photo-1567789884554-0b844b597180";
 
-/* PLACEHOLDER — no calibration certificates transcribed from the source PDF. */
+/* === MEASURING EQUIPMENT ===
+   Consumed by: pages/Quality.jsx ("Measuring equipment" list).
+   PLACEHOLDER — no calibration certificates transcribed from the source PDF. */
 export const MEASURING_EQUIPMENT = [
   "Vernier calipers and micrometers (external, internal, depth)",
   "Height gauge and surface plate",
@@ -641,22 +695,28 @@ export const MEASURING_EQUIPMENT = [
   "Weld fillet / throat gauges",
 ];
 
-/* --- Imagery helpers --- */
+/* === IMAGERY HELPERS === */
+
 /* Hero background — static shop-floor photo (PLACEHOLDER, gtech-brand §7).
+   Consumed by: components/Hero.jsx.
    Round-2 feedback reverted the hero from video back to this still image. */
 export const HERO_PHOTO = "photo-1567789884554-0b844b597180";
 
-/* Plant-tour clip (client-supplied) + its poster still. Round-2 feedback moved
-   this out of the hero and into the "Who We Are" section. The poster stands in
-   while the video buffers, on load failure, and under prefers-reduced-motion. */
+/* Plant-tour clip (client-supplied) + its poster still. Consumed by:
+   components/PlantTourVideo.jsx (home page "Who We Are" section). Round-2
+   feedback moved this out of the hero and into that section. The poster
+   stands in while the video buffers, on load failure, and under
+   prefers-reduced-motion. */
 export const PLANT_TOUR_VIDEO = "/assets/client-assets/video/plant-tour.mp4";
 export const PLANT_TOUR_POSTER = "/assets/client-assets/video/plant-tour-poster.png";
 
-/* "Why GTech" section image (PLACEHOLDER, Unsplash — industrial / precision-work
-   close-up; swap for a first-party GTech CNC lathe photo, gtech-brand §7). */
+/* "Why GTech" section image. Consumed by: pages/Home.jsx directly (PLACEHOLDER,
+   Unsplash — industrial / precision-work close-up; swap for a first-party
+   GTech CNC lathe photo, gtech-brand §7). */
 export const WHY_GTECH_PHOTO = "photo-1504328345606-18bbc8c9d7d1";
 
-/* Fixed Unsplash CDN URL from a photo id. source.unsplash.com keyword search is
+/* Fixed Unsplash CDN URL from a photo id. Consumed wherever a `photo` field
+   above needs to become an <img src>. source.unsplash.com keyword search is
    discontinued — fixed ids only. Every use is a PLACEHOLDER (gtech-brand §7). */
 export function unsplash(photoId, w = 1200, h = 900) {
   return `https://images.unsplash.com/${photoId}?w=${w}&h=${h}&fit=crop&crop=entropy&q=80&auto=format`;

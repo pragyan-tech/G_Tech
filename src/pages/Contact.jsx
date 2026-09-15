@@ -30,6 +30,14 @@ const MAPS_URL =
 /* Indian mobile: 10 digits starting 6, 7, 8 or 9. */
 const INDIAN_MOBILE = /^[6-9]\d{9}$/;
 
+/**
+ * Contact page (`/contact`) — company contact details plus a request-a-quote
+ * form. The form is a demo: `handleSubmit` validates the mobile number
+ * client-side and logs the payload to the console instead of sending it
+ * anywhere — wire `handleSubmit` to a real endpoint before launch.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState({});

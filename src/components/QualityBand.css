@@ -15,7 +15,7 @@
   margin-top: var(--space-4);
   font-size: var(--text-base);
   line-height: 1.65;
-  color: #c9d2da;
+  color: var(--color-navy-ink);
   max-width: 60ch;
 }
 

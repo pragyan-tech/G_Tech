@@ -5,6 +5,13 @@ import Reveal from "../components/ui/Reveal.jsx";
 import { MACHINES, MACHINE_CATEGORIES } from "../data/site.js";
 import "./Equipment.css";
 
+/**
+ * Equipment page (`/equipment`) — the full machine list (`MACHINES` in
+ * site.js) as a table, filterable by category chip and a free-text search
+ * across name/make/capacity.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Equipment() {
   const [category, setCategory] = useState("All");
   const [query, setQuery] = useState("");

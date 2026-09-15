@@ -1,6 +1,6 @@
 .page-hero {
   background: var(--color-navy);
-  color: #c9d2da;
+  color: var(--color-navy-ink);
   padding-block: calc(var(--header-h) + var(--space-7)) var(--space-8);
 }
 

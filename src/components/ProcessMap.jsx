@@ -3,9 +3,14 @@ import { ICONS } from "./Icons.jsx";
 import { PROCESS_STEPS } from "../data/site.js";
 import "./ProcessMap.css";
 
-/* "How the job flows" — one card per process step, cascading in left to
-   right as the section enters view (Trinity-inspired staggered entrance).
-   Desktop: 4-up grid that wraps to two rows. Mobile: single column. */
+/**
+ * "How the job flows" section on /capabilities — one card per process step
+ * (from `PROCESS_STEPS` in site.js), cascading in left to right as the
+ * section enters view. Desktop: 4-up grid that wraps to two rows. Mobile:
+ * single column.
+ *
+ * @returns {JSX.Element}
+ */
 export default function ProcessMap() {
   return (
     <section className="section section--paper">

@@ -4,6 +4,12 @@ import { ArrowRight, ICONS } from "./Icons.jsx";
 import { CAPABILITIES } from "../data/site.js";
 import "./CapabilityGrid.css";
 
+/**
+ * "Where to go next" grid on /capabilities — one card per capability area
+ * (`CAPABILITIES` in site.js) linking to its detail page.
+ *
+ * @returns {JSX.Element}
+ */
 export default function CapabilityGrid() {
   return (
     <RevealGroup className="capgrid">

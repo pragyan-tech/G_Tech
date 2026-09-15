@@ -3,7 +3,17 @@ import Reveal from "./ui/Reveal.jsx";
 import { ArrowRight } from "./Icons.jsx";
 import "./PageHero.css";
 
-/* Simple interior-page hero: navy band, eyebrow, h1, optional subline + back link. */
+/**
+ * Interior-page hero: navy band, eyebrow, h1, optional subline + back link.
+ * Used at the top of every route page except Home.
+ *
+ * @param {Object} props
+ * @param {string} [props.eyebrow] - Small uppercase label above the title.
+ * @param {string} props.title - Page heading (rendered as `<h1>`).
+ * @param {string} [props.subline] - Supporting paragraph below the title.
+ * @param {{ to: string, label: string }} [props.back] - When set, renders a "back to X" link above the eyebrow.
+ * @returns {JSX.Element}
+ */
 export default function PageHero({ eyebrow, title, subline, back }) {
   return (
     <section className="page-hero">

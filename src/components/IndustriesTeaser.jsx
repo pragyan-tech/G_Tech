@@ -1,9 +1,16 @@
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
 import PhotoCard from "./ui/PhotoCard.jsx";
 import { INDUSTRIES } from "../data/site.js";
-import "./Industries.css";
+import "./IndustriesTeaser.css";
 
-export default function Industries() {
+/**
+ * Home-page teaser for the industries GTech serves — portrait photo cards
+ * that deep-link to the matching anchor on the full `/industries` page.
+ * Distinct from `pages/Industries.jsx`, the standalone route with full blurbs.
+ *
+ * @returns {JSX.Element}
+ */
+export default function IndustriesTeaser() {
   return (
     <section className="section section--navy" id="industries">
       <div className="container">

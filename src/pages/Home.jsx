@@ -1,15 +1,23 @@
 import Hero from "../components/Hero.jsx";
 import ProofBar from "../components/ProofBar.jsx";
-import Capabilities from "../components/Capabilities.jsx";
+import CapabilitiesTeaser from "../components/CapabilitiesTeaser.jsx";
 import ClientStrip from "../components/ClientStrip.jsx";
 import FeaturedWork from "../components/FeaturedWork.jsx";
-import Industries from "../components/Industries.jsx";
+import IndustriesTeaser from "../components/IndustriesTeaser.jsx";
 import QualityBand from "../components/QualityBand.jsx";
 import CTASection from "../components/CTASection.jsx";
 import SplitFeature from "../components/SplitFeature.jsx";
 import PlantTourVideo from "../components/PlantTourVideo.jsx";
 import { WHY_GTECH_PHOTO, unsplash } from "../data/site.js";
 
+/**
+ * Home page (`/`) — assembles the full landing-page section sequence: hero,
+ * "Who we are" split feature, proof stats, capabilities teaser, client strip,
+ * "Why GTech" split feature, featured work, industries teaser, quality band,
+ * and the closing CTA.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Home() {
   return (
     <>
@@ -29,7 +37,7 @@ export default function Home() {
       />
 
       <ProofBar />
-      <Capabilities />
+      <CapabilitiesTeaser />
       <ClientStrip />
 
       <SplitFeature
@@ -61,7 +69,7 @@ export default function Home() {
       />
 
       <FeaturedWork />
-      <Industries />
+      <IndustriesTeaser />
       <QualityBand />
       <CTASection />
     </>

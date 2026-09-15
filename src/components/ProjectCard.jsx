@@ -2,8 +2,16 @@ import { RevealItem } from "./ui/Reveal.jsx";
 import { unsplash } from "../data/site.js";
 import "./ProjectCard.css";
 
-/* Shared project / part card — used on the home page and /clients.
-   PLACEHOLDER image (Unsplash) — replace with a first-party photo of the part. */
+/**
+ * Shared project / part card — used on the home page (`FeaturedWork`) and
+ * `/clients`. PLACEHOLDER image (Unsplash) — replace with a first-party
+ * photo of the part.
+ *
+ * @param {Object} props
+ * @param {Object} props.project - One entry from `PROJECTS` in site.js (`title`, `photo`, `industry`, `route`, `material`).
+ * @param {boolean} [props.showMaterial=false] - Show the "Material" row (used on /clients, hidden in the home-page teaser).
+ * @returns {JSX.Element}
+ */
 export default function ProjectCard({ project, showMaterial = false }) {
   return (
     <RevealItem as="article" className="pcard" y={24} duration={0.5}>

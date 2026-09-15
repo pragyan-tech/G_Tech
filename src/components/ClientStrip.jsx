@@ -2,7 +2,12 @@ import Reveal from "./ui/Reveal.jsx";
 import LogoMarquee from "./LogoMarquee.jsx";
 import "./ClientStrip.css";
 
-/* Home-page client band: heading + the shared sliding logo marquee. */
+/**
+ * Home-page client band: heading + the shared sliding logo marquee
+ * (`LogoMarquee`).
+ *
+ * @returns {JSX.Element}
+ */
 export default function ClientStrip() {
   return (
     <section className="section section--paper" id="clients">

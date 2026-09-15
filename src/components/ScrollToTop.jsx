@@ -1,9 +1,15 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-/* Reset scroll on route change. When the URL carries a hash (e.g. the home-page
-   industry cards link to /industries#construction), scroll that section into
-   view instead — its scroll-margin-top keeps it clear of the sticky header. */
+/**
+ * Renders nothing — resets scroll position on every route change. When the
+ * URL carries a hash (e.g. the home-page industry cards link to
+ * `/industries#construction`), scrolls that section into view instead; its
+ * `scroll-margin-top` (set in CSS) keeps it clear of the sticky header.
+ * Mounted once in `Layout.jsx`.
+ *
+ * @returns {null}
+ */
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 

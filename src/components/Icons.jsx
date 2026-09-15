@@ -1,6 +1,14 @@
 /* eslint-disable react-refresh/only-export-components -- icon barrel + name→component map */
-/* In-house line icons — 24px grid, 1.5 stroke, currentColor.
-   Kept simple and mechanical per .claude/skills/gtech-brand (no decorative clip-art). */
+/**
+ * In-house line-icon set — 24px grid, 1.5 stroke, currentColor. Kept simple
+ * and mechanical per .claude/skills/gtech-brand (no decorative clip-art).
+ *
+ * Each icon is a plain function component spreading `base` + any passed
+ * props onto an <svg>, so size/color/etc. can be overridden via props (e.g.
+ * `<IconWelding width={32} />`). `ICONS` at the bottom maps the string keys
+ * used in site.js (`icon: "welding"`) to these components — look up an icon
+ * with `ICONS[someRecord.icon]` rather than importing each one by name.
+ */
 
 const base = {
   width: 24,

@@ -38,6 +38,14 @@ function StatValue({ value, active, reduce }) {
   return value.replace(NUM_RE, String(animate ? current : target));
 }
 
+/**
+ * Home-page proof-stats strip (`PROOF_STATS` in site.js). Each stat's leading
+ * number counts up from zero once the section scrolls into view (see
+ * `StatValue` above), and shows its final value immediately under
+ * `prefers-reduced-motion`. Fires once.
+ *
+ * @returns {JSX.Element}
+ */
 export default function ProofBar() {
   const reduce = useReducedMotion();
   const ref = useRef(null);

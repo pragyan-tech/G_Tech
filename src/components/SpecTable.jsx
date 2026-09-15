@@ -1,6 +1,16 @@
 import "./SpecTable.css";
 
-/* Simple spec table with a horizontal-scroll wrapper (never scrolls the page). */
+/**
+ * Machine/spec data table with a horizontal-scroll wrapper (the table
+ * scrolls internally on narrow screens; it never widens the page). Used on
+ * capability detail pages to show machine specs.
+ *
+ * @param {Object} props
+ * @param {string} [props.caption] - Visually-hidden `<caption>` for screen readers.
+ * @param {string[]} props.columns - Column header labels, in order.
+ * @param {Array<Array<string|number>>} props.rows - Row data; each inner array's cells map positionally to `columns`.
+ * @returns {JSX.Element}
+ */
 export default function SpecTable({ caption, columns, rows }) {
   return (
     <div className="spec-table__wrap">

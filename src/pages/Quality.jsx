@@ -20,6 +20,14 @@ const INSPECTION_STEPS = [
   ["Records", "Results logged against the job for traceability and monthly review."],
 ];
 
+/**
+ * Quality page (`/quality`) — quality policy, QMS points, the inspection
+ * process, measuring equipment, and certification/award cards (each opening
+ * its source PDF/image in a new tab). `INSPECTION_STEPS` is local since it's
+ * page-specific narrative, not reused content.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Quality() {
   return (
     <>

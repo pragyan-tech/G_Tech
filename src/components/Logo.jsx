@@ -1,7 +1,13 @@
-/* PLACEHOLDER logo — orange gear + "GTech Enterprises" wordmark.
-   Replace with the final supplied brand asset (SVG) before launch. */
+/**
+ * PLACEHOLDER logo — orange gear + "GTech Enterprises" wordmark, drawn as
+ * inline SVG. Replace with the final supplied brand asset (SVG) before launch.
+ *
+ * @param {Object} props
+ * @param {boolean} [props.onDark=false] - Set when the logo sits on a dark/navy background, to switch the wordmark to white.
+ * @returns {JSX.Element}
+ */
 export default function Logo({ onDark = false }) {
-  const wordColor = onDark ? "#ffffff" : "var(--color-navy)";
+  const wordColor = onDark ? "var(--color-white)" : "var(--color-navy)";
   return (
     <span className="logo" aria-label="GTech Enterprises — home">
       <svg
@@ -17,7 +23,7 @@ export default function Logo({ onDark = false }) {
           fill="var(--color-orange)"
           d="M20 3.2l2.6 3.1 3.9-1.3 1 4 4 .9-1.2 3.9 3.1 2.6-3.1 2.6 1.2 3.9-4 .9-1 4-3.9-1.3L20 36.8l-2.6-3.1-3.9 1.3-1-4-4-.9 1.2-3.9L6.6 20l3.1-2.6-1.2-3.9 4-.9 1-4 3.9 1.3L20 3.2z"
         />
-        <circle cx="20" cy="20" r="9.5" fill="#ffffff" />
+        <circle cx="20" cy="20" r="9.5" fill="var(--color-white)" />
         {/* GE monogram */}
         <text
           x="20"

@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import Button from "../components/ui/Button.jsx";
 
+/**
+ * 404 page — matched by App.jsx's catch-all `<Route path="*">`.
+ *
+ * @returns {JSX.Element}
+ */
 export default function NotFound() {
   return (
     <>

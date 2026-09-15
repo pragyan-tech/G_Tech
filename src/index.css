@@ -23,6 +23,16 @@
   /* --- Dark accent --- */
   --color-graphite: #1c1f26;
 
+  /* --- Dark-section text (not in gtech-brand's swatch list, but reused across
+     6+ files for body copy / secondary text on navy or graphite backgrounds —
+     tokenized here instead of left as repeated literals). --- */
+  --color-navy-ink: #c9d2da;    /* body text on navy/graphite sections */
+  --color-navy-muted: #9aa7b2; /* secondary/caption text on navy/graphite sections */
+
+  /* --- Functional (form feedback) --- */
+  --color-error: #b42318;
+  --color-error-bg: rgba(180, 35, 24, 0.15); /* invalid-field focus ring */
+
   /* --- Typography --- */
   --font-display: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-body: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -256,7 +266,7 @@ p {
 
 .section--navy {
   background: var(--color-navy);
-  color: #c9d2da;
+  color: var(--color-navy-ink);
 }
 
 .section--navy h2,
@@ -271,7 +281,7 @@ p {
 }
 
 .section--navy .lead {
-  color: #c9d2da;
+  color: var(--color-navy-ink);
 }
 
 .section__head {

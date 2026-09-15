@@ -4,6 +4,18 @@ import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
 import { STATEMENTS, LEADERSHIP, ORG } from "../data/site.js";
 import "./About.css";
 
+/**
+ * Renders a person's photo when one is supplied, or an initials badge as a
+ * fallback (used for leadership/org entries still awaiting a client photo).
+ * Local to this file since it's only used within the About page's two lists.
+ *
+ * @param {Object} props
+ * @param {string} props.name - Used as the image `alt` text.
+ * @param {string} props.initials - Shown when `photo` is not set.
+ * @param {string|null} [props.photo] - Image path; falsy renders the initials badge instead.
+ * @param {"sm"|"md"} [props.size="md"] - Sizing class applied to the avatar.
+ * @returns {JSX.Element}
+ */
 function Avatar({ name, initials, photo, size = "md" }) {
   if (photo) {
     return (
@@ -25,6 +37,13 @@ function Avatar({ name, initials, photo, size = "md" }) {
   );
 }
 
+/**
+ * About page (`/about`) — company story, vision/mission, leadership cards,
+ * and the org-chart tiers, sourced from `STATEMENTS`, `LEADERSHIP`, and
+ * `ORG` in site.js.
+ *
+ * @returns {JSX.Element}
+ */
 export default function About() {
   return (
     <>

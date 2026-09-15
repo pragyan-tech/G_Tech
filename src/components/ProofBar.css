@@ -1,7 +1,7 @@
 .proof {
   /* Graphite: lightens the middle of the dark-band rhythm vs. navy while staying dark enough to alternate. */
   background: var(--color-graphite);
-  color: #c9d2da;
+  color: var(--color-navy-ink);
   padding-block: var(--space-6);
   scroll-margin-top: calc(var(--header-h) + var(--space-4));
 }
@@ -46,5 +46,5 @@
 .proof__label {
   font-size: var(--text-xs);
   line-height: 1.4;
-  color: #9aa7b2;
+  color: var(--color-navy-muted);
 }

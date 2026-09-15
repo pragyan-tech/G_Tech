@@ -3,9 +3,16 @@ import { useReducedMotion } from "motion/react";
 import { PLANT_TOUR_VIDEO, PLANT_TOUR_POSTER } from "../data/site.js";
 import "./PlantTourVideo.css";
 
-/* Background-style plant-tour clip: autoplay, muted, looped, no controls.
-   The poster still is the base layer and stands in whenever the video can't or
-   shouldn't play — a load error, or prefers-reduced-motion. */
+/**
+ * Background-style plant-tour clip: autoplay, muted, looped, no controls.
+ * The poster still is the base layer and stands in whenever the video can't
+ * or shouldn't play — a load error, or `prefers-reduced-motion`. Used in the
+ * home page's "Who We Are" section.
+ *
+ * @param {Object} props
+ * @param {string} [props.className=""] - Extra class names appended to the wrapper.
+ * @returns {JSX.Element}
+ */
 export default function PlantTourVideo({ className = "" }) {
   const reduce = useReducedMotion();
   const [videoOk, setVideoOk] = useState(true);

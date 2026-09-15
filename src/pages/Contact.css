@@ -149,7 +149,7 @@
 .field__error {
   font-size: var(--text-xs);
   line-height: 1.4;
-  color: #b42318;
+  color: var(--color-error);
 }
 
 .field input,
@@ -178,11 +178,11 @@
   box-shadow: 0 0 0 3px rgba(0, 144, 214, 0.15);
 }
 .field input[aria-invalid="true"] {
-  border-color: #b42318;
+  border-color: var(--color-error);
 }
 .field input[aria-invalid="true"]:focus-visible {
-  border-color: #b42318;
-  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.15);
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-bg);
 }
 
 .rfq__submit {

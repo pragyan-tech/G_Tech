@@ -5,6 +5,14 @@ import { ICONS } from "../components/Icons.jsx";
 import { INDUSTRIES } from "../data/site.js";
 import "./Industries.css";
 
+/**
+ * Industries page (`/industries`) — one full section per entry in
+ * `INDUSTRIES` (site.js), each with its own anchor id so the home-page
+ * teaser cards can deep-link here (e.g. `/industries#construction`).
+ * Distinct from `components/IndustriesTeaser.jsx`, the home-page card grid.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Industries() {
   return (
     <>

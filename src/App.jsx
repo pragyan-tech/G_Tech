@@ -12,6 +12,13 @@ import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import "./App.css";
 
+/**
+ * Route table — every page in the app is registered here, nested inside the
+ * shared `Layout` (navbar + footer). Add a new page by adding both an
+ * `import` above and a `<Route>` below.
+ *
+ * @returns {JSX.Element}
+ */
 export default function App() {
   return (
     <Routes>

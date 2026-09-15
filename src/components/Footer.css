@@ -1,6 +1,6 @@
 .footer {
   background: var(--color-navy-900);
-  color: #9aa7b2;
+  color: var(--color-navy-muted);
   padding-block: var(--space-9) var(--space-6);
   scroll-margin-top: var(--header-h);
 }
@@ -54,7 +54,7 @@
   margin-top: var(--space-3);
   font-size: var(--text-xs);
   letter-spacing: 0.02em;
-  color: #6b7480;
+  color: var(--color-steel);
 }
 
 .footer__list {
@@ -73,12 +73,12 @@
 }
 
 .footer__name {
-  color: #6b7480;
+  color: var(--color-steel);
   font-size: var(--text-xs);
 }
 
 .footer__list a {
-  color: #c9d2da;
+  color: var(--color-navy-ink);
   transition: color var(--transition);
 }
 .footer__list a:hover {
@@ -105,5 +105,5 @@
 }
 
 .footer__fineprint {
-  color: #6b7480;
+  color: var(--color-steel);
 }

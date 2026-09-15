@@ -6,6 +6,12 @@ import Reveal, { RevealGroup } from "../components/ui/Reveal.jsx";
 import { PROJECTS } from "../data/site.js";
 import "./Clients.css";
 
+/**
+ * Clients & work page (`/clients`) — logo marquee of customers/partners
+ * followed by the full `PROJECTS` grid from site.js.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Clients() {
   return (
     <>

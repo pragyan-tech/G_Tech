@@ -1,14 +1,20 @@
 import { CLIENTS } from "../data/site.js";
 import "./LogoMarquee.css";
 
-/* Continuously scrolling client-logo marquee (round-1 feedback, ref:
+/**
+ * Continuously scrolling client-logo marquee (round-1 feedback, ref:
    abhijeetengineers.com "Our Valuable Clients"). The list is rendered twice and
    the track is translated by -50%, so one full set scrolls off exactly as its
    copy scrolls in — no visible seam. Motion is pure CSS transform (GPU); the
    whole strip pauses on hover and falls back to a scrollable row under
    prefers-reduced-motion.
 
-   Used on the home page (ClientStrip) and on /clients above the static grid. */
+   Used on the home page (ClientStrip) and on /clients above the static grid.
+ *
+ * @param {Object} props
+ * @param {string} [props.className=""] - Extra class names appended to the marquee wrapper.
+ * @returns {JSX.Element}
+ */
 export default function LogoMarquee({ className = "" }) {
   const loop = [...CLIENTS, ...CLIENTS];
 

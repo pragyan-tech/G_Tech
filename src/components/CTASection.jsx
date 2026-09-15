@@ -3,6 +3,12 @@ import Reveal from "./ui/Reveal.jsx";
 import Button from "./ui/Button.jsx";
 import "./CTASection.css";
 
+/**
+ * Closing "Have a drawing? We'll quote it." call-to-action band, reused at
+ * the bottom of most pages.
+ *
+ * @returns {JSX.Element}
+ */
 export default function CTASection() {
   return (
     <section className="section cta">
