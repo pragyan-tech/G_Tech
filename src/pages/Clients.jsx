@@ -2,8 +2,8 @@ import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import LogoMarquee from "../components/LogoMarquee.jsx";
-import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
-import { CLIENTS, PROJECTS } from "../data/site.js";
+import Reveal, { RevealGroup } from "../components/ui/Reveal.jsx";
+import { PROJECTS } from "../data/site.js";
 import "./Clients.css";
 
 export default function Clients() {
@@ -27,21 +27,6 @@ export default function Clients() {
           </Reveal>
 
           <LogoMarquee className="clients-page__marquee" />
-
-          <RevealGroup className="clients-page__logos" step={0.05}>
-            {CLIENTS.map((client) => (
-              <RevealItem className="clients-page__cell" key={client.id} title={client.name}>
-                {/* Logos supplied by the client (round-1 feedback). */}
-                <img
-                  className="clients-page__logo"
-                  src={client.logo}
-                  alt={client.name}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </RevealItem>
-            ))}
-          </RevealGroup>
         </div>
       </section>
 
