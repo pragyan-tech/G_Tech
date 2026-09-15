@@ -149,16 +149,66 @@ export const CAPABILITIES = [
   },
 ];
 
-/* Raw material → dispatch process map. */
+/* Raw material → dispatch process map, rendered as the "How the job flows"
+   animated cards on /capabilities. `description` is the one-line card copy;
+   `icon` keys into ICONS (see Icons.jsx). */
 export const PROCESS_STEPS = [
-  { id: "material", label: "Raw material", note: "Bar, plate, sections — cut to size" },
-  { id: "cutting", label: "Cutting", note: "Koike plasma, band saw" },
-  { id: "forming", label: "Forming", note: "Press brake, rolling, bending" },
-  { id: "welding", label: "Welding", note: "MIG / TIG / arc, fixtured" },
-  { id: "machining", label: "Machining", note: "CNC turning, VMC milling, drilling" },
-  { id: "inspection", label: "Inspection", note: "In-process + final, against drawing" },
-  { id: "assembly", label: "Assembly", note: "Sub-assembly, fitting, hardware" },
-  { id: "dispatch", label: "Dispatch", note: "Protection, documentation, delivery" },
+  {
+    id: "material",
+    label: "Raw Material",
+    note: "Bar, plate, sections — cut to size",
+    description: "Certified bar, plate and sections arrive and get tagged for traceability.",
+    icon: "material",
+  },
+  {
+    id: "cutting",
+    label: "Cutting",
+    note: "Koike plasma, band saw",
+    description: "Koike HD plasma and band saw cut blanks and profiles to size.",
+    icon: "fabrication",
+  },
+  {
+    id: "forming",
+    label: "Forming",
+    note: "Press brake, rolling, bending",
+    description: "Press-brake bending, rolling and forming shape plate and sheet.",
+    icon: "forming",
+  },
+  {
+    id: "welding",
+    label: "Welding",
+    note: "MIG / TIG / arc, fixtured",
+    description: "MIG, TIG and arc welding join fixtured sections into weldments.",
+    icon: "welding",
+  },
+  {
+    id: "machining",
+    label: "Machining",
+    note: "CNC turning, VMC milling, drilling",
+    description: "LMW turning and BFW VMC milling cut to the drawing's tolerances.",
+    icon: "machining",
+  },
+  {
+    id: "inspection",
+    label: "Inspection",
+    note: "In-process + final, against drawing",
+    description: "In-process and final checks verify every dimension against the drawing.",
+    icon: "tooling",
+  },
+  {
+    id: "assembly",
+    label: "Assembly",
+    note: "Sub-assembly, fitting, hardware",
+    description: "Fitting, bolting and hardware installation build finished sub-assemblies.",
+    icon: "assembly",
+  },
+  {
+    id: "dispatch",
+    label: "Dispatch",
+    note: "Protection, documentation, delivery",
+    description: "Parts are protected, documented and packed for delivery.",
+    icon: "dispatch",
+  },
 ];
 
 /* --- Sub-capability page content --- */

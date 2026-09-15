@@ -50,22 +50,74 @@
   pointer-events: none;
 }
 
-/* primary — accent fill */
+/* primary — solid orange, navy fill slides in left-to-right on hover.
+   Trinity-inspired hover fill: a negative-z-index ::before layer scales in
+   from the left under the text (isolation + overflow:hidden keep it clipped
+   to the button's rounded corners). Text stays white throughout. */
 .btn--primary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: var(--color-orange);
   color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
-.btn--primary:hover {
-  background: var(--color-orange-600);
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-navy);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 350ms ease-out;
+}
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+  transform: scaleX(1);
 }
 
-/* secondary — navy fill */
+/* secondary — transparent + white outline, for dark/navy backgrounds
+   (Hero, Why GTech). Hover fills white left-to-right; text switches to navy
+   for legibility against the fill. */
 .btn--secondary {
-  background: var(--color-navy);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+  border-color: var(--color-white);
+  border-width: 1.5px;
   color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:
+    color 350ms ease-out,
+    border-color var(--transition),
+    transform var(--transition);
 }
-.btn--secondary:hover {
-  background: var(--color-navy-900);
+.btn--secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-white);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 350ms ease-out;
+}
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  color: var(--color-navy);
+}
+.btn--secondary:hover::before,
+.btn--secondary:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.btn--primary:active,
+.btn--secondary:active {
+  transform: scale(0.98);
 }
 
 /* outline — current colour border, transparent fill */

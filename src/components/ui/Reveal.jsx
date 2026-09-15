@@ -7,6 +7,8 @@ export default function Reveal({
   as = "div",
   delay = 0,
   y = 16,
+  x = 0,
+  duration = 0.32,
   amount = 0.3,
   className,
   ...rest
@@ -17,11 +19,12 @@ export default function Reveal({
   const variants = reduce
     ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
     : {
-        hidden: { opacity: 0, y },
+        hidden: { opacity: 0, y, x },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.32, ease: [0.16, 1, 0.3, 1], delay },
+          x: 0,
+          transition: { duration, ease: [0.16, 1, 0.3, 1], delay },
         },
       };
 
@@ -63,15 +66,23 @@ export function RevealGroup({ children, as = "div", className, step = 0.08, amou
   );
 }
 
-export function RevealItem({ children, as = "div", y = 16, className, ...rest }) {
+export function RevealItem({
+  children,
+  as = "div",
+  y = 16,
+  x = 0,
+  duration = 0.32,
+  className,
+  ...rest
+}) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as] ?? motion.div;
 
   const variants = reduce
     ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
     : {
-        hidden: { opacity: 0, y },
-        show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: [0.16, 1, 0.3, 1] } },
+        hidden: { opacity: 0, y, x },
+        show: { opacity: 1, y: 0, x: 0, transition: { duration, ease: [0.16, 1, 0.3, 1] } },
       };
 
   return (

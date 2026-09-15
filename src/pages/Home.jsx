@@ -44,7 +44,7 @@ export default function Home() {
           { text: "Faster turnaround." },
         ]}
         body="From single-part prototypes to full production runs, GTech delivers the precision and pace that construction-equipment and industrial OEMs demand. Nine years in, three ISO certifications, and a client list that reads like the top of Indian OEM manufacturing."
-        cta={{ label: "See Our Work", to: "/clients", variant: "outline", onDark: true }}
+        cta={{ label: "See Our Work", to: "/clients", variant: "secondary" }}
         media={
           <div className="split__frame">
             {/* PLACEHOLDER — replace with a first-party GTech CNC lathe photo. */}

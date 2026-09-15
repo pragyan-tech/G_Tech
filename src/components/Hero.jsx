@@ -60,9 +60,8 @@ export default function Hero() {
             <Button
               as="a"
               href={CAPABILITY_DECK_URL}
-              variant="outline"
+              variant="secondary"
               size="lg"
-              onDark
             >
               Download Capability Deck
               <ArrowRight />

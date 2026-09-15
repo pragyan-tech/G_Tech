@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Reveal from "./ui/Reveal.jsx";
+import { motion, useReducedMotion } from "motion/react";
+import { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
 import Button from "./ui/Button.jsx";
 import "./SplitFeature.css";
 
@@ -28,15 +29,36 @@ export default function SplitFeature({
   cta,
   media,
 }) {
+  const reduce = useReducedMotion();
+
+  const mediaVariants = reduce
+    ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
+    : {
+        hidden: { opacity: 0, scale: 0.98 },
+        show: {
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+        },
+      };
+
   return (
     <section
       className={`section split split--${tone}${reversed ? " split--reversed" : ""}`}
       id={id}
     >
       <div className="container split__grid">
-        <Reveal className="split__text">
-          {eyebrow && <span className="eyebrow split__eyebrow">{eyebrow}</span>}
-          <h2 className={`split__heading${stackHeading ? " split__heading--stack" : ""}`}>
+        <RevealGroup className="split__text" as="div" step={0.08} amount={0.4}>
+          {eyebrow && (
+            <RevealItem as="span" className="eyebrow split__eyebrow" duration={0.5}>
+              {eyebrow}
+            </RevealItem>
+          )}
+          <RevealItem
+            as="h2"
+            className={`split__heading${stackHeading ? " split__heading--stack" : ""}`}
+            duration={0.5}
+          >
             {heading.map((seg, i) => (
               <span
                 key={i}
@@ -46,23 +68,37 @@ export default function SplitFeature({
                 {i < heading.length - 1 ? " " : ""}
               </span>
             ))}
-          </h2>
-          {body && <p className="split__body">{body}</p>}
-          {cta && (
-            <Button
-              as={Link}
-              to={cta.to}
-              variant={cta.variant || "primary"}
-              size="lg"
-              onDark={cta.onDark}
-              className="split__cta"
-            >
-              {cta.label}
-            </Button>
+          </RevealItem>
+          {body && (
+            <RevealItem as="p" className="split__body" duration={0.5}>
+              {body}
+            </RevealItem>
           )}
-        </Reveal>
+          {cta && (
+            <RevealItem duration={0.5}>
+              <Button
+                as={Link}
+                to={cta.to}
+                variant={cta.variant || "primary"}
+                size="lg"
+                onDark={cta.onDark}
+                className="split__cta"
+              >
+                {cta.label}
+              </Button>
+            </RevealItem>
+          )}
+        </RevealGroup>
 
-        <Reveal className="split__media">{media}</Reveal>
+        <motion.div
+          className="split__media"
+          variants={mediaVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {media}
+        </motion.div>
       </div>
     </section>
   );

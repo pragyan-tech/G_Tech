@@ -16,9 +16,9 @@ export default function Industries() {
           </p>
         </Reveal>
 
-        <RevealGroup className="industries__row" step={0.07}>
+        <RevealGroup className="industries__row" step={0.1}>
           {INDUSTRIES.map((industry) => (
-            <RevealItem key={industry.id}>
+            <RevealItem key={industry.id} y={24} duration={0.5}>
               <PhotoCard
                 photo={industry.photo}
                 title={industry.label}

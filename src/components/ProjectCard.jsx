@@ -6,7 +6,7 @@ import "./ProjectCard.css";
    PLACEHOLDER image (Unsplash) — replace with a first-party photo of the part. */
 export default function ProjectCard({ project, showMaterial = false }) {
   return (
-    <RevealItem as="article" className="pcard">
+    <RevealItem as="article" className="pcard" y={24} duration={0.5}>
       <div className="pcard__media">
         <img
           src={unsplash(project.photo, 900, 640)}

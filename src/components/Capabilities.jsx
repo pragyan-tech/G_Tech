@@ -20,9 +20,9 @@ export default function Capabilities() {
           </p>
         </Reveal>
 
-        <RevealGroup className="cap__grid">
+        <RevealGroup className="cap__grid" step={0.12}>
           {CAPABILITIES.map((cap) => (
-            <RevealItem key={cap.id}>
+            <RevealItem key={cap.id} y={24} duration={0.5}>
               <PhotoCard photo={cap.photo} title={cap.title} to={cap.to} />
             </RevealItem>
           ))}

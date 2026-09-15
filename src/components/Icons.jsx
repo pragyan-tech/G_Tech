@@ -102,6 +102,39 @@ export function IconHeavyMachinery(props) {
   );
 }
 
+export function IconMaterial(props) {
+  /* stacked bar / plate stock */
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 7h16M4 7v10M20 7v10M4 17h16" />
+      <path d="M4 11.5h16M4 14.5h16" />
+    </svg>
+  );
+}
+
+export function IconForming(props) {
+  /* press-brake bend, force arrow above the fold */
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 8h5l6 8h5" />
+      <path d="M12 3.5v3.5" />
+      <path d="m10 5.5 2-2 2 2" />
+    </svg>
+  );
+}
+
+export function IconWelding(props) {
+  /* electrode rod with weld sparks */
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 19 15 9" />
+      <path d="M17 7l2-2" />
+      <path d="M13 7.5 15 9.5" />
+      <path d="M15.5 4.5 17 6M19 8l1.5 1.5" />
+    </svg>
+  );
+}
+
 export function IconTooling(props) {
   /* caliper / measuring */
   return (
@@ -109,6 +142,18 @@ export function IconTooling(props) {
       <path d="M4 4h4v12H4zM4 8h4M4 12h4" />
       <path d="M8 6h9v3H8z" />
       <path d="M17 6v10M14 16h6" />
+    </svg>
+  );
+}
+
+export function IconDispatch(props) {
+  /* open crate + outbound arrow */
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 7.5 9 5l6 2.5-6 2.5-6-2.5Z" />
+      <path d="M3 7.5v6L9 16l6-2.5v-6" />
+      <path d="M9 10v6" />
+      <path d="M15 12h6m0 0-2.2-2.2M21 12l-2.2 2.2" />
     </svg>
   );
 }
@@ -122,4 +167,8 @@ export const ICONS = {
   energy: IconEnergy,
   heavyMachinery: IconHeavyMachinery,
   tooling: IconTooling,
+  material: IconMaterial,
+  forming: IconForming,
+  welding: IconWelding,
+  dispatch: IconDispatch,
 };

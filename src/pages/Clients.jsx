@@ -55,7 +55,7 @@ export default function Clients() {
               tolerances are not shown.
             </p>
           </Reveal>
-          <RevealGroup className="card-grid">
+          <RevealGroup className="card-grid" step={0.08}>
             {PROJECTS.map((project) => (
               <ProjectCard key={project.id} project={project} showMaterial />
             ))}

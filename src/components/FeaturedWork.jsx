@@ -19,7 +19,7 @@ export default function FeaturedWork() {
           </p>
         </Reveal>
 
-        <RevealGroup className="work__grid">
+        <RevealGroup className="work__grid" step={0.12}>
           {PROJECTS.slice(0, 3).map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
