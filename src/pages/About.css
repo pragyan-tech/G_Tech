@@ -2,7 +2,7 @@
   color: var(--color-orange-600);
 }
 .about__vm p:not(.subhead) {
-  font-size: var(--text-lg);
+  font-size: var(--text-lead);
   line-height: 1.6;
   color: var(--color-navy);
   max-width: 46ch;
@@ -18,18 +18,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
 }
 .avatar--md {
   width: 80px;
   height: 80px;
-  font-size: var(--text-xl);
+  font-size: var(--text-h4);
 }
 .avatar--sm {
   width: 44px;
   height: 44px;
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
 }
 .avatar--initials {
   border: 1px solid var(--color-border);
@@ -57,19 +57,19 @@
 }
 
 .leader__name {
-  font-size: var(--text-lg);
-  font-weight: 600;
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
 }
 .leader__role {
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
   color: var(--color-orange-600);
   margin-top: 2px;
 }
 .leader__bio {
   margin-top: var(--space-2);
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.55;
   color: var(--color-steel);
 }
@@ -108,10 +108,10 @@
 
 .org__level {
   display: block;
-  font-size: var(--text-xs);
-  font-weight: 600;
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
   color: var(--color-steel);
   margin-bottom: var(--space-3);
 }
@@ -124,14 +124,14 @@
 
 .org__name {
   display: block;
-  font-family: var(--font-display);
-  font-size: var(--text-base);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
 }
 .org__role {
   display: block;
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   color: var(--color-steel);
   margin-top: 2px;
 }
@@ -161,8 +161,8 @@
   color: rgba(255, 255, 255, 0.6);
 }
 .org__floor {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
   color: var(--color-white);
 }

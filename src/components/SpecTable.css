@@ -8,7 +8,7 @@
 .spec-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   min-width: 480px;
 }
 
@@ -21,10 +21,10 @@
 
 .spec-table thead th {
   background: var(--color-mist);
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
-  font-size: var(--text-xs);
+  font-size: var(--text-eyebrow);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   white-space: nowrap;
@@ -39,6 +39,6 @@
 }
 
 .spec-table td:first-child {
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   color: var(--color-ink);
 }

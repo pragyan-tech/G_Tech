@@ -148,15 +148,38 @@ const fadeRise = {
 </motion.div>
 ```
 
-**Rules:**
+**Rules — card / list entrance stagger (the default fade-and-rise above):**
 
-- Durations: **200–400ms** for entrances and hovers. 150ms for tiny state changes (button press). Never exceed 400ms for UI motion.
+- Durations: **200–500ms** for entrances and hovers. 150ms for tiny state changes (button press). Card cascades commonly run at 500ms.
 - Easing: **ease-out** for entrances (`[0.16, 1, 0.3, 1]` or `"easeOut"`). Ease-in-out for looping/continuous only. Never ease-in for entrances.
-- Translate distance for fade-and-rise: **12–24px**, never more.
-- Stagger children by **60–90ms**, cap total stagger at ~400ms regardless of count.
+- Translate distance for fade-and-rise: **12–24px**.
+- Stagger children by **60–120ms**, cap total stagger at ~400ms regardless of count.
 - Animate only `opacity` and `transform`. Never animate `width`, `height`, `top`, `left`, `margin`, or `box-shadow`.
 - Entrances fire once (`viewport={{ once: true }}`). Content must never re-animate on scroll-up.
-- No parallax, no scroll-hijacking, no auto-playing carousels, no counters that count up on every view.
+- No scroll-hijacking, no auto-playing carousels, no counters that count up on every view.
+
+**Rules — section-boundary reveal (Trinity-style, a taller/slower variant, not the card default):**
+
+- Wraps a whole section (or is the section itself) so it fades up as a unit when it crosses ~15% into the viewport — this is what makes background-alternated sections feel like they arrive instead of cut in.
+- Translate distance: up to **40px** (bigger than the 12–24px card range above, because it's moving a whole section, not a list item).
+- Duration: up to **800ms** — the one allowed exception to the 500ms entrance cap, reserved for this whole-section case.
+- Still `viewport={{ once: true }}`, still opacity + `transform` only, still ease-out.
+- Don't double-wrap: a section that already has its own bespoke entrance (the page hero, the home hero) doesn't also get a section-boundary reveal.
+
+**Rules — word-by-word heading reveal (reserved for major section headings only):**
+
+- Split the heading into words; each word fades and rises in (opacity 0→1, `translateY(20px)→0`) as the heading crosses ~30% into the viewport.
+- Duration 500ms per word, ~80ms stagger between words, ease-out, fires once.
+- Use sparingly — the hero headline and one or two headline-level section headings per page, never body headings, card titles, or repeated list headings.
+
+**Rules — hero background parallax (the one parallax exception):**
+
+- The general rule is **no parallax, anywhere, on anything** — except a hero's own background image/photo, and only there.
+- Cap the effect at roughly a **30% scroll-speed differential** (the background should never look detached from the content moving over it).
+- Implement via a CSS `transform` set from JS, not a CSS `background-attachment: fixed` hack. Gate the scroll listener behind an `IntersectionObserver` so it only runs while the hero is on screen — never a page-wide scroll listener, and never recompute per frame without `requestAnimationFrame` throttling.
+- Stops entirely once the hero scrolls out of view.
+
+All four of the above still collapse to their reduced-motion fallback below — none of this is exempt from that.
 
 **Reduced motion — required:**
 
@@ -246,7 +269,8 @@ When reduced motion is set: content appears immediately at full opacity, no tran
 - No gradients as primary surfaces. A very subtle single-hue gradient is allowed only for a hero background or an image overlay scrim.
 - No drop shadows on text. No gl/`text-shadow` except a functional scrim over photos.
 - No pure black (`#000`) and no pure white text on saturated color unless it passes contrast.
-- No animating in on every scroll; no motion longer than 400ms; no parallax; no scroll-jacking.
+- No animating in on every scroll; no motion longer than 800ms (and that ceiling is reserved for whole-section reveals — see §5); no scroll-jacking.
+- No parallax anywhere except a hero's own background image (see §5) — never on cards, sections, or anything else.
 - No more than one accent color; no rainbow of "category" colors.
 - No icon-only buttons without an `aria-label`.
 - No fixed pixel heights on text containers.

@@ -47,7 +47,7 @@
   top: 50%;
   right: calc(-1 * var(--space-7) / 2 - 2px);
   transform: translateY(-50%);
-  font-size: var(--text-xl);
+  font-size: var(--text-h4);
   line-height: 1;
   color: var(--color-border);
 }
@@ -59,9 +59,9 @@
 }
 
 .pmap__num {
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.04em;
   color: var(--color-border);
 }
@@ -84,12 +84,12 @@
 
 .pmap__label {
   margin-top: var(--space-2);
-  font-size: var(--text-base);
+  font-size: var(--text-body);
   color: var(--color-navy);
 }
 
 .pmap__desc {
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.5;
   color: var(--color-steel);
 }

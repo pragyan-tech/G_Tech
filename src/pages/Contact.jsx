@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { COMPANY } from "../data/site.js";
 import "./Contact.css";
 
@@ -69,7 +70,7 @@ export default function Contact() {
         subline="Share your part details and drawings — we'll come back with a price and a lead time. Or call our Plant Head directly."
       />
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container contact__grid">
           <div className="contact__info">
             <Reveal>
@@ -269,7 +270,7 @@ export default function Contact() {
             )}
           </Reveal>
         </div>
-      </section>
+      </SectionReveal>
     </>
   );
 }

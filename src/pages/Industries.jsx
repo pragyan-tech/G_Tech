@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { ICONS } from "../components/Icons.jsx";
 import { INDUSTRIES } from "../data/site.js";
 import "./Industries.css";
@@ -25,7 +26,7 @@ export default function Industries() {
       {INDUSTRIES.map((industry, i) => {
         const Icon = ICONS[industry.icon];
         return (
-          <section
+          <SectionReveal
             className={`section ${i % 2 === 1 ? "section--paper" : ""}`}
             id={industry.id}
             key={industry.id}
@@ -52,11 +53,13 @@ export default function Industries() {
                 </Reveal>
               </div>
             </div>
-          </section>
+          </SectionReveal>
         );
       })}
 
-      <CTASection />
+      <SectionReveal as="div">
+        <CTASection />
+      </SectionReveal>
     </>
   );
 }

@@ -108,7 +108,40 @@ Derived from the logo (vivid orange gear, azure GE monogram, black keyline). Use
 
 ---
 
-## 5. Terminology
+## 5. Typography
+
+Two faces, per `ui-ux-pro-max`: **Oswald** for headings, **Inter** for body and UI chrome.
+
+- Headings (`h1`–`h3`) are Oswald, uppercase, letter-spaced tight, bold/semibold. `h4` is Oswald but sentence case, medium weight.
+- Write headings as short, punchy sentences that still read cleanly in all-caps — no trailing clauses, no clever line breaks.
+  - Good: "PRECISION MANUFACTURING FOR INDIA'S OEM LEADERS." / "BUILT TO PRINT. TIGHTER TOLERANCES. FASTER TURNAROUND."
+  - Bad: "We provide comprehensive manufacturing solutions." (also fails Voice — see §3.)
+- Body copy, eyebrows, buttons, nav, and table/label chrome stay in Inter. Oswald is reserved for real headings and the three named card-title categories (photo cards, project cards, process cards) — never spread it to every small label.
+- Eyebrow labels are always Inter, uppercase, orange, letter-spaced — never the heading face.
+
+---
+
+## 6. Spacing & section rhythm
+
+Generous vertical padding does the separating; there are no divider lines between sections.
+
+- Major homepage sections (Who We Are, Why GTech, Featured Work, Industries) run **128px** vertical padding on desktop. Interior-page sections run **96px**. Both scale down on mobile — never justify shrinking a major section to interior-page depth just to fit more above the fold.
+- Standard section structure, top to bottom: **eyebrow → heading → paragraph → CTA**. Don't skip the eyebrow on a major section; don't stack two CTAs in one section.
+- Background contrast (paper / white / navy / graphite alternation) is what marks a new section, not a border or a shadow line.
+
+---
+
+## 7. Animation vocabulary
+
+- Sections fade up as they scroll into view (opacity + a modest rise) — the "soft boundary" that replaces hard section-to-section cuts.
+- The hero photo carries a subtle scroll parallax; nothing else on the page parallaxes.
+- The three major headings (hero headline, "Who We Are", "Why GTech") animate in word-by-word. Every other heading just arrives with its section.
+- Cards cascade in with a short stagger. Buttons fill on hover. The client-logo marquee scrolls continuously.
+- All of the above collapses to an instant, static state under `prefers-reduced-motion` — never gate brand content behind motion.
+
+---
+
+## 8. Terminology
 
 **Use these terms** (they signal we speak the customer's language):
 
@@ -125,7 +158,7 @@ Derived from the logo (vivid orange gear, azure GE monogram, black keyline). Use
 
 ---
 
-## 6. Trust signals to feature
+## 9. Trust signals to feature
 
 Surface these prominently — on the home page, in a stats band, and where relevant on capability pages:
 
@@ -141,7 +174,7 @@ Surface these prominently — on the home page, in a stats band, and where relev
 
 ---
 
-## 7. Imagery
+## 10. Imagery
 
 **Use only:**
 
@@ -166,9 +199,8 @@ Surface these prominently — on the home page, in a stats band, and where relev
 
 ---
 
-## 8. Do-nots
+## 11. Do-nots
 
-- **Do not claim ISO 9001 (or any) certification.** The source deck says a QMS is "maintained" but shows no certificate. If asked to add a certification badge, respond that it must be confirmed first. Acceptable phrasing until confirmed: "quality management system with in-process and final inspection" and, if true, "ISO 9001 — in implementation".
 - **Do not publish absolute turnover / revenue figures.** The deck's ₹-crore numbers are internal projections. Use "roughly 3× revenue growth since 2021" or "consistent year-on-year growth since 2021" — never a rupee amount, never a specific multiple beyond "about 3×".
 - Do not use vendor product photos from the source PDF (licensing) — see Imagery.
 - Do not retire-then-reuse the old tagline "…A manufacturing solution" or "manufacturing solutions" anywhere.

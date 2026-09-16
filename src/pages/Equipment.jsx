@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { MACHINES, MACHINE_CATEGORIES } from "../data/site.js";
 import "./Equipment.css";
 
@@ -37,7 +38,7 @@ export default function Equipment() {
         subline="Every machine on the GTech floor, from the source company profile. Filter by area or search by name, make or capacity."
       />
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container">
           <Reveal className="equip__controls">
             <div className="equip__filters" role="group" aria-label="Filter by category">
@@ -102,9 +103,11 @@ export default function Equipment() {
             </table>
           </Reveal>
         </div>
-      </section>
+      </SectionReveal>
 
-      <CTASection />
+      <SectionReveal as="div">
+        <CTASection />
+      </SectionReveal>
     </>
   );
 }

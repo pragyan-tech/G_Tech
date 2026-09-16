@@ -34,17 +34,17 @@
 }
 
 .proof__value {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-bold);
   color: var(--color-white);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-tight);
   /* Steady width while the count-up runs. */
   font-variant-numeric: tabular-nums;
 }
 
 .proof__label {
-  font-size: var(--text-xs);
+  font-size: var(--text-eyebrow);
   line-height: 1.4;
   color: var(--color-navy-muted);
 }

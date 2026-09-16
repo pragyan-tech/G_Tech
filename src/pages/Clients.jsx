@@ -3,6 +3,7 @@ import CTASection from "../components/CTASection.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import LogoMarquee from "../components/LogoMarquee.jsx";
 import Reveal, { RevealGroup } from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { PROJECTS } from "../data/site.js";
 import "./Clients.css";
 
@@ -21,7 +22,7 @@ export default function Clients() {
         subline="Build-to-print parts running in construction equipment and industrial machinery, for OEMs and Tier-1 / Tier-2 suppliers."
       />
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container">
           <Reveal className="section__head">
             <span className="eyebrow">Selected customers</span>
@@ -34,9 +35,9 @@ export default function Clients() {
 
           <LogoMarquee className="clients-page__marquee" />
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section section--paper">
+      <SectionReveal className="section section--paper">
         <div className="container">
           <Reveal className="section__head">
             <span className="eyebrow">Project work</span>
@@ -52,9 +53,11 @@ export default function Clients() {
             ))}
           </RevealGroup>
         </div>
-      </section>
+      </SectionReveal>
 
-      <CTASection />
+      <SectionReveal as="div">
+        <CTASection />
+      </SectionReveal>
     </>
   );
 }

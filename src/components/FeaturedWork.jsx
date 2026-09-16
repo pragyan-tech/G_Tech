@@ -14,7 +14,7 @@ import "./FeaturedWork.css";
  */
 export default function FeaturedWork() {
   return (
-    <section className="section">
+    <section className="section section--lg">
       <div className="container">
         <Reveal className="section__head">
           <span className="eyebrow">Featured work</span>

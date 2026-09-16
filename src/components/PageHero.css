@@ -13,14 +13,12 @@
 .page-hero h1 {
   color: var(--color-white);
   max-width: 20ch;
-  font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem);
-  line-height: 1.12;
 }
 
 .page-hero__subline {
   margin-top: var(--space-4);
-  font-size: var(--text-lg);
-  line-height: 1.55;
+  font-size: var(--text-lead);
+  line-height: var(--leading-normal);
   color: rgba(255, 255, 255, 0.8);
   max-width: 60ch;
 }
@@ -32,9 +30,9 @@
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
   color: rgba(255, 255, 255, 0.75);
   transition: color var(--transition);
 }

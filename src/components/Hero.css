@@ -24,6 +24,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  will-change: transform;
 }
 
 .hero__scrim {
@@ -47,14 +48,12 @@
 .hero h1 {
   color: var(--color-white);
   margin-top: var(--space-2);
-  font-size: clamp(2rem, 1.2rem + 3.6vw, 3.5rem);
-  line-height: 1.1;
 }
 
 .hero__subline {
   margin-top: var(--space-5);
-  font-size: var(--text-lg);
-  line-height: 1.55;
+  font-size: var(--text-lead);
+  line-height: var(--leading-normal);
   color: rgba(255, 255, 255, 0.82);
   max-width: 56ch;
 }

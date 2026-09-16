@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import WordReveal from "./ui/WordReveal.jsx";
 import Button from "./ui/Button.jsx";
 import "./SplitFeature.css";
 
@@ -57,21 +58,9 @@ export default function SplitFeature({
               {eyebrow}
             </RevealItem>
           )}
-          <RevealItem
-            as="h2"
-            className={`split__heading${stackHeading ? " split__heading--stack" : ""}`}
-            duration={0.5}
-          >
-            {heading.map((seg, i) => (
-              <span
-                key={i}
-                className={seg.accent ? "split__accent" : undefined}
-              >
-                {seg.text}
-                {i < heading.length - 1 ? " " : ""}
-              </span>
-            ))}
-          </RevealItem>
+          <WordReveal as="h2" className="split__heading" stack={stackHeading}>
+            {heading}
+          </WordReveal>
           {body && (
             <RevealItem as="p" className="split__body" duration={0.5}>
               {body}

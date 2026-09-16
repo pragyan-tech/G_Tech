@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import {
   STATEMENTS,
   QMS_POINTS,
@@ -37,16 +38,16 @@ export default function Quality() {
         subline="A documented quality management system with inspection at every step — not a final-check afterthought."
       />
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container container--narrow">
           <Reveal>
             <p className="subhead">Quality policy</p>
             <p className="q-policy">{STATEMENTS.quality}</p>
           </Reveal>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section section--paper">
+      <SectionReveal className="section section--paper">
         <div className="container">
           <Reveal className="section__head">
             <span className="eyebrow">How the QMS works</span>
@@ -61,9 +62,9 @@ export default function Quality() {
             ))}
           </RevealGroup>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container">
           <div className="grid-2">
             <Reveal>
@@ -92,9 +93,9 @@ export default function Quality() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section cert-section">
+      <SectionReveal className="section cert-section">
         {/* PLACEHOLDER background (Unsplash, gtech-brand §7) — swap for
             /assets/client-assets/certifications/section-background.jpg when the
             client supplies a real shop-floor photo. */}
@@ -148,9 +149,9 @@ export default function Quality() {
             ))}
           </RevealGroup>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section cert-section">
+      <SectionReveal className="section cert-section">
         <img
           className="cert-section__bg"
           src={unsplash(CERT_SECTION_BG, 1600, 900)}
@@ -192,9 +193,11 @@ export default function Quality() {
             ))}
           </RevealGroup>
         </div>
-      </section>
+      </SectionReveal>
 
-      <CTASection />
+      <SectionReveal as="div">
+        <CTASection />
+      </SectionReveal>
     </>
   );
 }

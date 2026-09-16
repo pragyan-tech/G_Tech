@@ -1,3 +1,15 @@
+/* Trinity's deeper rhythm for the two homepage split features (Who We Are,
+   Why GTech) — overrides the generic `.section` padding both instances also
+   carry. */
+.split {
+  padding-block: calc(var(--section-padding-lg) * 0.6);
+}
+@media (min-width: 768px) {
+  .split {
+    padding-block: var(--section-padding-lg);
+  }
+}
+
 .split__grid {
   display: grid;
   gap: var(--space-6);
@@ -26,24 +38,14 @@
   margin-bottom: var(--space-3);
 }
 
-.split__heading {
-  font-size: var(--text-3xl);
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-}
-
-.split__heading--stack span {
-  display: block;
-}
-
 .split__accent {
   color: var(--color-orange);
 }
 
 .split__body {
   margin-top: var(--space-4);
-  font-size: var(--text-lg);
-  line-height: 1.6;
+  font-size: var(--text-lead);
+  line-height: var(--leading-normal);
   max-width: 52ch;
 }
 

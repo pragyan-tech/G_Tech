@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero.jsx";
 import SpecTable from "../components/SpecTable.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { CAPABILITY_PAGES } from "../data/site.js";
 
 /**
@@ -28,7 +29,7 @@ export default function CapabilityDetail() {
         back={{ to: "/capabilities", label: "All capabilities" }}
       />
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container container--narrow">
           <Reveal className="prose">
             {page.intro.map((para, i) => (
@@ -36,9 +37,9 @@ export default function CapabilityDetail() {
             ))}
           </Reveal>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section section--paper">
+      <SectionReveal className="section section--paper">
         <div className="container">
           <Reveal className="section__head">
             <h2>{page.specTitle}</h2>
@@ -52,9 +53,9 @@ export default function CapabilityDetail() {
             />
           </Reveal>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="section">
+      <SectionReveal className="section">
         <div className="container">
           <div className="grid-2">
             <Reveal>
@@ -75,9 +76,11 @@ export default function CapabilityDetail() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <CTASection />
+      <SectionReveal as="div">
+        <CTASection />
+      </SectionReveal>
     </>
   );
 }

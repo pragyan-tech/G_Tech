@@ -40,7 +40,7 @@
 }
 
 .capgrid__body {
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.57;
   color: var(--color-steel);
   flex-grow: 1;
@@ -51,9 +51,9 @@
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-5);
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
   transition: color var(--transition), gap var(--transition);
 }

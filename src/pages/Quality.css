@@ -1,9 +1,9 @@
 .q-policy {
-  font-size: var(--text-xl);
+  font-size: var(--text-lead);
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   color: var(--color-navy);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-tight);
 }
 
 .q-card {
@@ -13,13 +13,13 @@
   border-radius: var(--radius-md);
 }
 .q-card__title {
-  font-size: var(--text-lg);
-  font-weight: 600;
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
   margin-bottom: var(--space-2);
 }
 .q-card__body {
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.6;
   color: var(--color-steel);
 }
@@ -51,28 +51,28 @@
   border-radius: var(--radius-full);
   background: var(--color-navy);
   color: var(--color-white);
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-bold);
 }
 .q-steps__label {
   display: block;
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
 }
 .q-steps__body {
   display: block;
   margin-top: 2px;
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.55;
   color: var(--color-steel);
 }
 
 .q-note {
   margin-top: var(--space-4);
-  font-size: var(--text-xs);
+  font-size: var(--text-eyebrow);
   color: var(--color-steel);
 }
 
@@ -154,8 +154,8 @@ a.cert-card:focus-visible {
 }
 .cert-card__link {
   margin-top: var(--space-3);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
   color: var(--color-blue);
 }
 
@@ -183,8 +183,8 @@ a.cert-card:focus-visible {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
   color: var(--color-navy);
 }
 
@@ -195,18 +195,18 @@ a.cert-card:focus-visible {
   padding: var(--space-4) var(--space-5) var(--space-5);
 }
 .cert-card__name {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
   color: var(--color-navy);
 }
 .cert-card__sub {
-  font-size: var(--text-sm);
+  font-size: var(--text-body-sm);
   line-height: 1.5;
   color: var(--color-ink);
 }
 .cert-card__meta {
   margin-top: var(--space-2);
-  font-size: var(--text-xs);
+  font-size: var(--text-eyebrow);
   color: var(--color-steel);
 }

@@ -8,9 +8,11 @@
   padding-inline: var(--space-5);
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
@@ -26,7 +28,7 @@
 }
 .btn--lg {
   --btn-h: 52px;
-  font-size: var(--text-base);
+  font-size: var(--text-body);
   padding-inline: var(--space-6);
 }
 .btn--sm {
@@ -60,8 +62,6 @@
   overflow: hidden;
   background: var(--color-orange);
   color: var(--color-white);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 .btn--primary::before {
   content: "";
@@ -89,8 +89,6 @@
   border-color: var(--color-white);
   border-width: 1.5px;
   color: var(--color-white);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   transition:
     color 350ms ease-out,
     border-color var(--transition),
