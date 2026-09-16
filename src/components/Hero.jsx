@@ -22,7 +22,9 @@ const PARALLAX_LAG = 0.3;
  * down (lagging the page by `PARALLAX_LAG`) while the hero is in view, via a
  * rAF-throttled scroll listener that's only attached while an
  * IntersectionObserver reports the hero on screen — never a page-wide
- * scroll listener. Skipped entirely under `prefers-reduced-motion`.
+ * scroll listener. Skipped entirely under `prefers-reduced-motion`, and also
+ * on touch/coarse-pointer devices (phones/tablets) to avoid fighting
+ * momentum scrolling on low-end hardware.
  *
  * @returns {JSX.Element}
  */
@@ -33,6 +35,10 @@ export default function Hero() {
 
   useEffect(() => {
     if (reduce) return;
+    // Touch devices (phones/tablets) skip the parallax outright — a
+    // scroll-driven transform fights momentum scrolling on low-end hardware
+    // and is the biggest source of mobile scroll jank (ui-ux-pro-max §5).
+    if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const section = sectionRef.current;
     const bg = bgRef.current;
     if (!section || !bg) return;

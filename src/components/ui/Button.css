@@ -118,6 +118,27 @@
   transform: scale(0.98);
 }
 
+/* Touch devices don't fire :hover, so the fill animation above never runs on
+   tap. Re-trigger it off :active instead, at a snappier 200ms (vs. the
+   350ms hover fill) since a tap-release is a much shorter gesture than a
+   mouse hover. Scoped to hover:none/pointer:coarse so desktop's hover
+   behavior (above) is untouched. */
+@media (hover: none) and (pointer: coarse) {
+  .btn--primary::before,
+  .btn--secondary::before {
+    transition: transform 200ms ease-out;
+  }
+  .btn--primary:active::before {
+    transform: scaleX(1);
+  }
+  .btn--secondary:active {
+    color: var(--color-navy);
+  }
+  .btn--secondary:active::before {
+    transform: scaleX(1);
+  }
+}
+
 /* outline — current colour border, transparent fill */
 .btn--outline {
   background: transparent;

@@ -7,8 +7,10 @@ import { PROJECTS } from "../data/site.js";
 import "./FeaturedWork.css";
 
 /**
- * Home-page "Parts we deliver" section — the first 3 entries from `PROJECTS`
- * in site.js, linking through to the full list on `/clients`.
+ * "Parts we deliver" teaser section — the first 3 entries from `PROJECTS` in
+ * site.js, linking through to the full list on `/clients`. Not currently
+ * used on any page (superseded by the "See Our Work" featured-work section
+ * further up the home page); kept available for reuse.
  *
  * @returns {JSX.Element}
  */
