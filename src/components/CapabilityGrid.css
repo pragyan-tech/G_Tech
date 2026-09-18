@@ -50,3 +50,25 @@
   align-self: flex-start;
   margin-top: var(--space-5);
 }
+
+/* All three cards render "EXPLORE / <TOPIC>" on two lines, even where the
+   topic fits on one, so the longest label ("Assembly & Finishing") doesn't
+   throw off row alignment against the other two cards. */
+.btn.capgrid__link {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: auto;
+  min-height: 64px;
+  padding-block: var(--space-3);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.capgrid__link-line--cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}

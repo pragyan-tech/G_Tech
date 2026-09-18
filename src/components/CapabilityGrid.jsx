@@ -24,7 +24,10 @@ export default function CapabilityGrid() {
             <h3 className="capgrid__title">{cap.title}</h3>
             <p className="capgrid__body">{cap.body}</p>
             <Button as={Link} to={cap.to} variant="primary" size="sm" className="capgrid__link">
-              Explore {cap.title} <ArrowRight />
+              <span className="capgrid__link-line">Explore</span>
+              <span className="capgrid__link-line capgrid__link-line--cta">
+                {cap.title} <ArrowRight />
+              </span>
             </Button>
           </RevealItem>
         );
