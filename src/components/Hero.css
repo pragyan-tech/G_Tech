@@ -39,19 +39,26 @@
 
 /* Soft dissolve into the next section (Who We Are, paper bg) instead of a
    hard cut — trinityrail.com-style haze. Sits above the bg/scrim but below
-   the text content, which needs an explicit z-index since it's a flex item
-   and would otherwise paint in DOM order among the other z-index:auto layers. */
+   the text content (.hero__inner is z-index:1). A taller zone with a
+   4-stop curve (vs. the old 2-stop 0%/60%/100% cut) so there's no visible
+   ramp-up point — it reads as a continuous dissolve, not a hard-edged
+   gradient meeting a flat color.
+   Stops: 0% transparent -> 40% paper@5% opacity -> 70% paper@60% opacity
+   -> 100% paper fully opaque. The endpoint matches Who We Are's actual
+   background (--color-paper) exactly, so there's no color mismatch at the
+   boundary either. */
 .hero__fade {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 160px;
   z-index: 0;
+  height: 200px;
   background: linear-gradient(
     180deg,
     rgba(246, 247, 249, 0) 0%,
-    rgba(246, 247, 249, 0) 60%,
+    rgba(246, 247, 249, 0.05) 40%,
+    rgba(246, 247, 249, 0.6) 70%,
     var(--color-paper) 100%
   );
   pointer-events: none;
@@ -59,7 +66,7 @@
 
 @media (min-width: 768px) {
   .hero__fade {
-    height: 256px;
+    height: 360px;
   }
 }
 

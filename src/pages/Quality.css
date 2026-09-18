@@ -70,12 +70,6 @@
   color: var(--color-steel);
 }
 
-.q-note {
-  margin-top: var(--space-4);
-  font-size: var(--text-eyebrow);
-  color: var(--color-steel);
-}
-
 /* --- Certifications / Awards sections --- */
 .cert-section {
   position: relative;

@@ -19,18 +19,24 @@
 
 /* Soft dissolve into the interior page's next section. Every page's section
    right after PageHero is a plain, unmodified .section (white), not paper —
-   fading to --color-paper here would leave a visible seam against that. */
+   fading to --color-paper here would leave a visible seam against that.
+   Taller zone with a 4-stop curve (vs. the old 2-stop 0%/60%/100% cut) so
+   there's no visible ramp-up point.
+   Stops: 0% transparent -> 40% white@5% opacity -> 70% white@60% opacity
+   -> 100% white fully opaque, matching the next section's background
+   exactly. */
 .page-hero__fade {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 160px;
+  height: 150px;
   z-index: 0;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.6) 70%,
     var(--color-white) 100%
   );
   pointer-events: none;
@@ -38,7 +44,7 @@
 
 @media (min-width: 768px) {
   .page-hero__fade {
-    height: 256px;
+    height: 280px;
   }
 }
 

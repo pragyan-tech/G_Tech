@@ -85,11 +85,6 @@ export default function Quality() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="q-note">
-                {/* PLACEHOLDER — no calibration certificates were transcribed
-                    from the source PDF; confirm the calibration register with the client. */}
-                Calibration register — TODO CONFIRM WITH CLIENT.
-              </p>
             </Reveal>
           </div>
         </div>

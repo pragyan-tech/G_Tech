@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import Button from "./ui/Button.jsx";
 import { ArrowRight, ICONS } from "./Icons.jsx";
 import { CAPABILITIES } from "../data/site.js";
 import "./CapabilityGrid.css";
@@ -22,9 +23,9 @@ export default function CapabilityGrid() {
             </span>
             <h3 className="capgrid__title">{cap.title}</h3>
             <p className="capgrid__body">{cap.body}</p>
-            <Link className="capgrid__link" to={cap.to}>
+            <Button as={Link} to={cap.to} variant="primary" size="sm" className="capgrid__link">
               Explore {cap.title} <ArrowRight />
-            </Link>
+            </Button>
           </RevealItem>
         );
       })}
