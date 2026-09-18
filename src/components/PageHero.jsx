@@ -17,6 +17,7 @@ import "./PageHero.css";
 export default function PageHero({ eyebrow, title, subline, back }) {
   return (
     <section className="page-hero">
+      <div className="page-hero__fade" aria-hidden="true" />
       <div className="container">
         <Reveal>
           {back && (

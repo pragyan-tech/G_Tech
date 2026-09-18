@@ -104,6 +104,7 @@ export default function Hero() {
         fetchPriority="high"
       />
       <div className="hero__scrim" aria-hidden="true" />
+      <div className="hero__fade" aria-hidden="true" />
 
       <div className="container hero__inner">
         <motion.div

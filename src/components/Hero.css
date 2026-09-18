@@ -37,7 +37,35 @@
     linear-gradient(90deg, rgba(6, 27, 44, 0.85) 0%, rgba(6, 27, 44, 0.35) 70%);
 }
 
+/* Soft dissolve into the next section (Who We Are, paper bg) instead of a
+   hard cut — trinityrail.com-style haze. Sits above the bg/scrim but below
+   the text content, which needs an explicit z-index since it's a flex item
+   and would otherwise paint in DOM order among the other z-index:auto layers. */
+.hero__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(246, 247, 249, 0) 0%,
+    rgba(246, 247, 249, 0) 60%,
+    var(--color-paper) 100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero__fade {
+    height: 256px;
+  }
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
 }
 

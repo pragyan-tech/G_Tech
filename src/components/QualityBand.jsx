@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Reveal, { RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import Button from "./ui/Button.jsx";
 import { ArrowRight } from "./Icons.jsx";
 import "./QualityBand.css";
 
@@ -31,9 +32,9 @@ export default function QualityBand() {
             customer drawing before they move to the next operation, and again
             before dispatch.
           </p>
-          <Link className="quality__link" to="/quality">
+          <Button as={Link} to="/quality" variant="secondary" className="quality__link">
             Our quality approach <ArrowRight />
-          </Link>
+          </Button>
         </Reveal>
 
         <RevealGroup className="quality__checks" as="ul" step={0.07}>

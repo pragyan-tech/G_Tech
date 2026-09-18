@@ -19,24 +19,10 @@
   max-width: 60ch;
 }
 
+/* Now a Button (see QualityBand.jsx) — only the section-specific spacing
+   lives here, the rest comes from .btn/.btn--secondary. */
 .quality__link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
   margin-top: var(--space-5);
-  font-family: var(--font-body);
-  font-size: var(--text-body-sm);
-  font-weight: var(--weight-semibold);
-  color: var(--color-white);
-  transition: gap var(--transition), color var(--transition);
-}
-.quality__link svg {
-  width: 16px;
-  height: 16px;
-}
-.quality__link:hover {
-  color: var(--color-orange);
-  gap: var(--space-3);
 }
 
 .quality__checks {

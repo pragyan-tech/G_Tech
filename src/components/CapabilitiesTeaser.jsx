@@ -37,7 +37,7 @@ export default function CapabilitiesTeaser() {
         </RevealGroup>
 
         <Reveal className="cap__more">
-          <Button as={Link} to="/capabilities" variant="outline">
+          <Button as={Link} to="/capabilities" variant="primary">
             See all capabilities <ArrowRight />
           </Button>
         </Reveal>
