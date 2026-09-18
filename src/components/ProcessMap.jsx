@@ -13,7 +13,7 @@ import "./ProcessMap.css";
  */
 export default function ProcessMap() {
   return (
-    <section className="section section--paper">
+    <section className="section">
       <div className="container">
         <Reveal className="section__head">
           <span className="eyebrow">How a job flows</span>
