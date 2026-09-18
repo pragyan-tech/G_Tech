@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { NavLink, Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Logo from "./Logo.jsx";
@@ -17,6 +18,11 @@ import "./Navbar.css";
  * - Locks `document.body` scroll while the mobile drawer is open.
  * - The drawer's slide-in animation is skipped (fades instead) under
  *   `prefers-reduced-motion`.
+ * - The scrim + drawer are portaled to `document.body`, not rendered inside
+ *   `.nav`: `.nav--scrolled` sets `backdrop-filter`, which — like `filter` or
+ *   `transform` — makes the element the containing block for any
+ *   `position: fixed` descendants. Left in place, the drawer would position
+ *   itself relative to the ~60px-tall header instead of the viewport.
  *
  * @returns {JSX.Element}
  */
@@ -82,55 +88,58 @@ export default function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div
-              className="nav__scrim"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setMenuOpen(false)}
-            />
-            <motion.aside
-              className="nav__drawer"
-              role="dialog"
-              aria-label="Site menu"
-              initial={reduce ? { opacity: 0 } : { x: "100%" }}
-              animate={reduce ? { opacity: 1 } : { x: 0 }}
-              exit={reduce ? { opacity: 0 } : { x: "100%" }}
-              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <nav className="nav__drawer-links" aria-label="Mobile">
-                {NAV_LINKS.map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    end={link.to === "/"}
-                    className={({ isActive }) =>
-                      `nav__drawer-link ${isActive ? "nav__drawer-link--active" : ""}`
-                    }
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
-              </nav>
-              <Button
-                as={Link}
-                to="/contact"
-                variant="primary"
-                size="lg"
-                className="nav__drawer-cta"
+      {createPortal(
+        <AnimatePresence>
+          {menuOpen && (
+            <>
+              <motion.div
+                className="nav__scrim"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setMenuOpen(false)}
+              />
+              <motion.aside
+                className="nav__drawer"
+                role="dialog"
+                aria-label="Site menu"
+                initial={reduce ? { opacity: 0 } : { x: "100%" }}
+                animate={reduce ? { opacity: 1 } : { x: 0 }}
+                exit={reduce ? { opacity: 0 } : { x: "100%" }}
+                transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
               >
-                Request a Quote
-              </Button>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+                <nav className="nav__drawer-links" aria-label="Mobile">
+                  {NAV_LINKS.map((link) => (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      end={link.to === "/"}
+                      className={({ isActive }) =>
+                        `nav__drawer-link ${isActive ? "nav__drawer-link--active" : ""}`
+                      }
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {link.label}
+                    </NavLink>
+                  ))}
+                </nav>
+                <Button
+                  as={Link}
+                  to="/contact"
+                  variant="primary"
+                  size="lg"
+                  className="nav__drawer-cta"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Request a Quote
+                </Button>
+              </motion.aside>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </header>
   );
 }

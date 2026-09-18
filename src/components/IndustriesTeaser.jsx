@@ -12,7 +12,7 @@ import "./IndustriesTeaser.css";
  */
 export default function IndustriesTeaser() {
   return (
-    <section className="section section--lg section--navy" id="industries">
+    <section className="section section--lg section--paper" id="industries">
       <div className="container">
         <Reveal className="section__head">
           <span className="eyebrow">Where our parts run</span>
