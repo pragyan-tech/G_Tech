@@ -1,60 +1,36 @@
 .page-hero {
   position: relative;
   isolation: isolate;
-  background: var(--color-navy);
   color: var(--color-navy-ink);
   padding-block: calc(var(--header-h) + var(--space-7)) var(--space-8);
+  /* The section background itself is the navy-to-white transition — no
+     overlay layer on top of it. Every page's section right after PageHero
+     is a plain, unmodified .section (white), so the gradient's final stop
+     matches --color-white exactly. Transition lives in the bottom 20-25%;
+     text above sits in the flat navy zone. */
+  background: linear-gradient(
+    180deg,
+    var(--color-navy) 0%,
+    var(--color-navy) 80%,
+    var(--color-white) 100%
+  );
 }
 
 @media (min-width: 768px) {
   .page-hero {
     padding-block: calc(var(--header-h) + var(--space-8)) var(--space-9);
+    background: linear-gradient(
+      180deg,
+      var(--color-navy) 0%,
+      var(--color-navy) 75%,
+      var(--color-white) 100%
+    );
   }
 }
 
 .page-hero > .container {
   position: relative;
   z-index: 1;
-}
-
-/* Soft dissolve into the interior page's next section. Every page's section
-   right after PageHero is a plain, unmodified .section (white), not paper —
-   fading to --color-paper here would leave a visible seam against that.
-   Kept short (110px mobile / 160px desktop) so it stays well below the
-   section's own bottom padding — the fade never reaches up into the
-   eyebrow/h1/lead text, which sit in the flat navy zone above it.
-   Mobile uses a 5-stop curve with a solid buffer in the final 10% (matches
-   --color-white exactly) to hide any sub-pixel seam at the section
-   boundary; desktop keeps the plain 4-stop curve. */
-.page-hero__fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 110px;
-  z-index: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.05) 40%,
-    rgba(255, 255, 255, 0.6) 70%,
-    var(--color-white) 90%,
-    var(--color-white) 100%
-  );
-  pointer-events: none;
-}
-
-@media (min-width: 768px) {
-  .page-hero__fade {
-    height: 160px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0.6) 70%,
-      var(--color-white) 100%
-    );
-  }
 }
 
 .page-hero h1 {
