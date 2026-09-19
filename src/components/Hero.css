@@ -4,19 +4,9 @@
   display: flex;
   align-items: center;
   min-height: 88svh;
-  padding-block: calc(var(--header-h) + var(--space-7)) var(--space-9);
+  padding-block: calc(var(--header-h) + var(--space-7)) var(--space-8);
+  background: var(--color-navy-900);
   overflow: hidden;
-  /* The section background itself is the navy-to-paper transition — no
-     overlay layer. The photo (below) is contained to the top 72% of the
-     section, so this gradient's navy portion is fully covered by the photo
-     and only its tail becomes visible in the empty bottom 28%, dissolving
-     into the "Who We Are" section (--color-paper). */
-  background: linear-gradient(
-    180deg,
-    var(--color-navy) 0%,
-    var(--color-navy) 72%,
-    var(--color-paper) 100%
-  );
 }
 
 @media (min-width: 768px) {
@@ -26,19 +16,10 @@
   }
 }
 
-.hero__photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 72%;
-  z-index: -2;
-  overflow: hidden;
-}
-
 .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: -2;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -50,25 +31,57 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  /* Dark scrim so the headline stays legible over the photo (≈0.55 base),
-     solidifying to fully-opaque --color-navy by the bottom edge of
-     .hero__photo — an exact color match with the section gradient's own
-     navy stop just below it, so the photo appears to melt into the
-     section background instead of cutting off against it. */
+  /* Dark scrim so the headline stays legible over motion (≈0.55 base). */
   background:
-    linear-gradient(180deg, rgba(6, 27, 44, 0.55) 0%, rgba(6, 27, 44, 0.78) 55%, var(--color-navy) 100%),
+    linear-gradient(180deg, rgba(6, 27, 44, 0.55) 0%, rgba(6, 27, 44, 0.78) 100%),
     linear-gradient(90deg, rgba(6, 27, 44, 0.85) 0%, rgba(6, 27, 44, 0.35) 70%);
+}
+
+/* Soft dissolve into the next section (Who We Are, paper bg) instead of a
+   hard cut — trinityrail.com-style haze. Sits above the bg/scrim but below
+   the text content (.hero__inner is z-index:1). A taller zone with a
+   4-stop curve (vs. the old 2-stop 0%/60%/100% cut) so there's no visible
+   ramp-up point — it reads as a continuous dissolve, not a hard-edged
+   gradient meeting a flat color.
+   Mobile uses a 5-stop curve with a solid buffer in the final 10% (matches
+   --color-paper exactly) to hide any sub-pixel seam at the section
+   boundary on high-DPI phone screens; desktop keeps the plain 4-stop curve
+   at the original 360px height (unchanged — that one already read clean). */
+.hero__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  height: 200px;
+  background: linear-gradient(
+    180deg,
+    rgba(246, 247, 249, 0) 0%,
+    rgba(246, 247, 249, 0.05) 40%,
+    rgba(246, 247, 249, 0.6) 70%,
+    var(--color-paper) 90%,
+    var(--color-paper) 100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero__fade {
+    height: 360px;
+    background: linear-gradient(
+      180deg,
+      rgba(246, 247, 249, 0) 0%,
+      rgba(246, 247, 249, 0.05) 40%,
+      rgba(246, 247, 249, 0.6) 70%,
+      var(--color-paper) 100%
+    );
+  }
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
   width: 100%;
-  /* Extra bottom padding biases the vertically-centered content upward,
-     keeping it clear of the empty gradient zone at the bottom of the
-     section on shorter viewports (content is centered within this box,
-     so padding added here only at the bottom shifts it up, not down). */
-  padding-bottom: var(--space-8);
 }
 
 .hero__content {
