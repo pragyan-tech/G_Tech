@@ -51,7 +51,7 @@ export default function About() {
     <>
       <Seo
         title="About — GTech Enterprises"
-        description="GTech Enterprises, founded 2016 in Chikhali, Pune. A 42-person precision manufacturing partner for India's OEM leaders. Led by Mrs. Aaditi Jadhav."
+        description="GTech Enterprises, founded 2016 in Chikhali, Pune. Around 42 people building precision components for India's OEM leaders. Led by Mrs. Aaditi Jadhav."
         path="/about"
       />
       <PageHero

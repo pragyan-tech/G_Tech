@@ -67,7 +67,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact — GTech Enterprises"
-        description="Request a quote from GTech Enterprises. Precision machining and fabrication for OEMs. Chikhali, Pune, Maharashtra. Contact us today."
+        description="Request a quote from GTech Enterprises. Precision machining and fabrication for OEMs. Chikhali, Pune, Maharashtra. Available Monday to Saturday, 9-6."
         path="/contact"
       />
       <PageHero
