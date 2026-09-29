@@ -51,23 +51,31 @@
   align-items: center;
   justify-content: center;
   padding-inline: var(--space-6);
-  min-width: 160px;
-  min-height: 72px;
+  min-width: 180px;
+  min-height: 88px;
 }
 
 @media (min-width: 768px) {
   .marquee__item {
-    padding-inline: var(--space-7);
-    min-width: 200px;
+    padding-inline: var(--space-8);
+    min-width: 260px;
+    min-height: 128px;
   }
 }
 
 .marquee__logo {
   width: auto;
-  max-width: 180px;
-  max-height: 48px;
+  max-width: 200px;
+  max-height: 56px;
   object-fit: contain;
   /* Full colour — client wants logos shown as supplied (round-1 feedback). */
+}
+
+@media (min-width: 768px) {
+  .marquee__logo {
+    max-width: 260px;
+    max-height: 76px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

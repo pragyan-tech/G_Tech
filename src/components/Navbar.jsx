@@ -109,6 +109,22 @@ export default function Navbar() {
                 exit={reduce ? { opacity: 0 } : { x: "100%" }}
                 transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
               >
+                <button
+                  type="button"
+                  className="nav__drawer-close"
+                  aria-label="Close menu"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 4L16 16M16 4L4 16"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </button>
+
                 <nav className="nav__drawer-links" aria-label="Mobile">
                   {NAV_LINKS.map((link) => (
                     <NavLink

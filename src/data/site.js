@@ -414,15 +414,17 @@ export const MACHINE_CATEGORIES = ["All", "Machining", "Fabrication", "Support"]
    suppliers / partners (e.g. Atlas Copco, KYB). Confirm the split so this can
    become two lists — "Customers" and "Suppliers & partners". DRDO added per
    round-1 instruction. Some supplied logo files have a baked-in background
-   colour (SANY, Atlas Copco, Zoomlion) — request transparent-PNG versions. */
+   colour (SANY, Zoomlion) — request transparent versions. HD Hyundai and
+   Atlas Copco were replaced with client-supplied SVG versions (crisper,
+   scales cleanly in the marquee) — the rest are still PNG/WEBP as supplied. */
 export const CLIENTS = [
-  { id: "hd-hyundai", name: "HD Hyundai Construction Equipment India", logo: "/assets/client-assets/logos/hd-hyundai.png" },
+  { id: "hd-hyundai", name: "HD Hyundai Construction Equipment India", logo: "/assets/client-assets/logos/hd-hyundai.svg" },
   { id: "zoomlion", name: "Zoomlion", logo: "/assets/client-assets/logos/zoomlion.png" },
   { id: "sany", name: "SANY", logo: "/assets/client-assets/logos/sany.png" },
   { id: "lt-construction", name: "L&T Construction", logo: "/assets/client-assets/logos/lt-construction.png" },
   { id: "kyb", name: "KYB", logo: "/assets/client-assets/logos/kyb.png" },
   { id: "conmat", name: "Conmat", logo: "/assets/client-assets/logos/conmat.png" },
-  { id: "atlas-copco", name: "Atlas Copco", logo: "/assets/client-assets/logos/atlas-copco.png" },
+  { id: "atlas-copco", name: "Atlas Copco", logo: "/assets/client-assets/logos/atlas-copco.svg" },
   { id: "global-tooling", name: "Global Tooling", logo: "/assets/client-assets/logos/global-tooling.png" },
   { id: "drdo", name: "DRDO", logo: "/assets/client-assets/logos/drdo.webp" },
 ];

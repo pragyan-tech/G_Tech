@@ -190,6 +190,27 @@
   overflow-y: auto;
 }
 
+.nav__drawer-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: color var(--transition), background-color var(--transition);
+}
+.nav__drawer-close:hover {
+  color: var(--color-orange-600);
+  background: var(--color-mist);
+}
+
 .nav__drawer-links {
   display: flex;
   flex-direction: column;

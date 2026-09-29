@@ -12,7 +12,7 @@ import { WHY_GTECH_PHOTO, unsplash } from "../data/site.js";
 
 /**
  * Home page (`/`) — assembles the full landing-page section sequence: hero,
- * "Who we are" split feature, proof stats, capabilities teaser, client strip,
+ * client strip, "Who we are" split feature, proof stats, capabilities teaser,
  * "Why GTech" split feature, industries teaser, quality band, and the closing
  * CTA. Every section but the hero (which has its own fade-and-rise entrance)
  * is wrapped in `SectionReveal` for the Trinity-style section-boundary fade.
@@ -23,6 +23,10 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <SectionReveal as="div">
+        <ClientStrip />
+      </SectionReveal>
 
       <SectionReveal as="div">
         <SplitFeature
@@ -44,9 +48,6 @@ export default function Home() {
       </SectionReveal>
       <SectionReveal as="div">
         <CapabilitiesTeaser />
-      </SectionReveal>
-      <SectionReveal as="div">
-        <ClientStrip />
       </SectionReveal>
 
       <SectionReveal as="div">
