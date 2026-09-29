@@ -1,0 +1,18 @@
+<!-- PLACEHOLDER Open Graph image source (1200×630). Rendered to
+     public/og-image.png by scripts/generate-icons.mjs. Replace with a real
+     plant-photography hero shot when available. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b2a43"/>
+  <!-- orange square mark with GE monogram -->
+  <rect x="100" y="196" width="128" height="128" rx="25.6" fill="#fa6336"/>
+  <text x="164" y="284" text-anchor="middle" fill="#ffffff"
+        font-family="Inter, Arial, Helvetica, sans-serif" font-size="62" font-weight="700" letter-spacing="-2">GE</text>
+  <!-- wordmark -->
+  <text x="268" y="300" fill="#ffffff"
+        font-family="Inter, Arial, Helvetica, sans-serif" font-size="92" font-weight="700" letter-spacing="-2">GTech Enterprises</text>
+  <!-- orange underline accent -->
+  <rect x="100" y="372" width="160" height="8" fill="#fa6336"/>
+  <!-- tagline -->
+  <text x="100" y="440" fill="#c9d2da"
+        font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="4">PRECISION MANUFACTURING FOR INDIA'S OEM LEADERS</text>
+</svg>

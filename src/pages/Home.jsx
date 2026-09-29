@@ -7,8 +7,34 @@ import QualityBand from "../components/QualityBand.jsx";
 import CTASection from "../components/CTASection.jsx";
 import SplitFeature from "../components/SplitFeature.jsx";
 import PlantTourVideo from "../components/PlantTourVideo.jsx";
+import Seo from "../components/Seo.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
 import { WHY_GTECH_PHOTO, unsplash } from "../data/site.js";
+
+/* schema.org structured data for the Home page (rendered as JSON-LD). */
+const ORGANIZATION_LD = {
+  "@context": "https://schema.org",
+  "@type": "Manufacturer",
+  name: "GTech Enterprises",
+  url: "https://gtechent.com",
+  logo: "https://gtechent.com/favicon.svg",
+  foundingDate: "2016",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "Gat No. 1652, Patil Nagar, Behind MNGL Pump, Dehu-Alandi Road, Chikhali",
+    addressLocality: "Pune",
+    addressRegion: "Maharashtra",
+    postalCode: "411062",
+    addressCountry: "IN",
+  },
+  telephone: "+91-9021774809",
+  email: "development@gtechent.com",
+  openingHours: "Mo-Sa 09:00-18:00",
+  description:
+    "Precision CNC machining, structural fabrication and assembly under one roof for construction-equipment and industrial OEMs.",
+  sameAs: [],
+};
 
 /**
  * Home page (`/`) — assembles the full landing-page section sequence: hero,
@@ -22,6 +48,15 @@ import { WHY_GTECH_PHOTO, unsplash } from "../data/site.js";
 export default function Home() {
   return (
     <>
+      <Seo
+        title="GTech Enterprises — Precision Machining & Fabrication for OEMs, Pune"
+        description="GTech Enterprises: precision CNC machining, structural fabrication and assembly for construction-equipment and industrial OEMs. Chikhali, Pune. Since 2016."
+        path="/"
+      >
+        <script type="application/ld+json">
+          {JSON.stringify(ORGANIZATION_LD)}
+        </script>
+      </Seo>
       <Hero />
 
       <SectionReveal as="div">

@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import ProcessMap from "../components/ProcessMap.jsx";
 import CapabilityGrid from "../components/CapabilityGrid.jsx";
 import CTASection from "../components/CTASection.jsx";
@@ -15,6 +16,11 @@ import SectionReveal from "../components/ui/SectionReveal.jsx";
 export default function Capabilities() {
   return (
     <>
+      <Seo
+        title="Capabilities — GTech Enterprises"
+        description="Turning, milling, fabrication and assembly under one roof. Build-to-print components for construction-equipment and industrial OEMs — Pune, India."
+        path="/capabilities"
+      />
       <PageHero
         eyebrow="Capabilities"
         title="Machining and fabrication under one roof"

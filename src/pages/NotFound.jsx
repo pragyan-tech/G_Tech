@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import PageHero from "../components/PageHero.jsx";
 import Button from "../components/ui/Button.jsx";
 
@@ -10,6 +11,10 @@ import Button from "../components/ui/Button.jsx";
 export default function NotFound() {
   return (
     <>
+      <Helmet>
+        <title>Page not found — GTech Enterprises</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <PageHero
         eyebrow="404"
         title="That page isn't here"

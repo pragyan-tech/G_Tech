@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
@@ -32,6 +33,11 @@ const INSPECTION_STEPS = [
 export default function Quality() {
   return (
     <>
+      <Seo
+        title="Quality & Certifications — GTech Enterprises"
+        description="ISO 9001, ISO 14001, ISO 3834-2 certified. In-process inspection, traceability and quality management systems for precision manufacturing."
+        path="/quality"
+      />
       <PageHero
         eyebrow="Quality"
         title="Quality built into the process"

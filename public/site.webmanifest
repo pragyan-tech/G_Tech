@@ -1,0 +1,13 @@
+{
+  "name": "GTech Enterprises",
+  "short_name": "GTech",
+  "icons": [
+    { "src": "/favicon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#fa6336",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "start_url": "/"
+}

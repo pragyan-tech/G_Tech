@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
@@ -64,6 +65,11 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title="Contact — GTech Enterprises"
+        description="Request a quote from GTech Enterprises. Precision machining and fabrication for OEMs. Chikhali, Pune, Maharashtra. Contact us today."
+        path="/contact"
+      />
       <PageHero
         eyebrow="Contact"
         title="Send us a drawing"

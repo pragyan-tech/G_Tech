@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal, { RevealGroup, RevealItem } from "../components/ui/Reveal.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
@@ -48,6 +49,11 @@ function Avatar({ name, initials, photo, size = "md" }) {
 export default function About() {
   return (
     <>
+      <Seo
+        title="About — GTech Enterprises"
+        description="GTech Enterprises, founded 2016 in Chikhali, Pune. A 42-person precision manufacturing partner for India's OEM leaders. Led by Mrs. Aaditi Jadhav."
+        path="/about"
+      />
       <PageHero
         eyebrow="About"
         title="A Pune machine shop, built to print"

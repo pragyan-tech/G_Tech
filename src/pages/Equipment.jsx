@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
@@ -32,6 +33,11 @@ export default function Equipment() {
 
   return (
     <>
+      <Seo
+        title="Equipment — GTech Enterprises"
+        description="GTech's machine list: LMW CNC turning centres, BFW VMC, Koike plasma cutting, press-brake forming, MIG/TIG welding. Full equipment inventory."
+        path="/equipment"
+      />
       <PageHero
         eyebrow="Equipment"
         title="The machine list"

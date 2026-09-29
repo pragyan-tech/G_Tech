@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import SectionReveal from "../components/ui/SectionReveal.jsx";
@@ -17,6 +18,11 @@ import "./Industries.css";
 export default function Industries() {
   return (
     <>
+      <Seo
+        title="Industries — GTech Enterprises"
+        description="OEM manufacturing partner for construction and earth-moving equipment, automotive, energy, heavy machinery and industrial tooling sectors."
+        path="/industries"
+      />
       <PageHero
         eyebrow="Industries"
         title="Where our parts run"

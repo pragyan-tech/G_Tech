@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero.jsx";
+import Seo from "../components/Seo.jsx";
 import CTASection from "../components/CTASection.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import LogoMarquee from "../components/LogoMarquee.jsx";
@@ -16,6 +17,11 @@ import "./Clients.css";
 export default function Clients() {
   return (
     <>
+      <Seo
+        title="Clients — GTech Enterprises"
+        description="Trusted by HD Hyundai Construction Equipment, Zoomlion, SANY, L&T Construction, DRDO and other OEM leaders across India and abroad."
+        path="/clients"
+      />
       <PageHero
         eyebrow="Clients & work"
         title="Who we build for"
