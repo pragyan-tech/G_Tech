@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="GTech Enterprises — Precision Machining & Fabrication for OEMs, Pune"
-        description="GTech Enterprises: precision CNC machining, structural fabrication and assembly for construction-equipment and industrial OEMs. Chikhali, Pune. Since 2016."
+        title="GTech Enterprises — Precision Machining & Fabrication, Pune"
+        description="GTech Enterprises: precision CNC machining, fabrication and assembly for OEMs. Chikhali, Pune. Since 2016."
         path="/"
       >
         <script type="application/ld+json">
