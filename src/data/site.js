@@ -683,7 +683,7 @@ export const AWARDS = [
    Consumed by: pages/Quality.jsx (certifications + awards section backgrounds).
    Future upgrade: /assets/client-assets/certifications/section-background.jpg
    once the client supplies a real shop-floor photo. */
-export const CERT_SECTION_BG = "photo-1567789884554-0b844b597180";
+export const CERT_SECTION_BG = "/assets/client-assets/certifications/section-background.jpg";
 
 /* === MEASURING EQUIPMENT ===
    Consumed by: pages/Quality.jsx ("Measuring equipment" list).

@@ -102,7 +102,7 @@ export default function Quality() {
             client supplies a real shop-floor photo. */}
         <img
           className="cert-section__bg"
-          src={unsplash(CERT_SECTION_BG, 1600, 900)}
+          src={CERT_SECTION_BG}
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -155,7 +155,7 @@ export default function Quality() {
       <SectionReveal className="section cert-section">
         <img
           className="cert-section__bg"
-          src={unsplash(CERT_SECTION_BG, 1600, 900)}
+          src={CERT_SECTION_BG}
           alt=""
           aria-hidden="true"
           loading="lazy"
