@@ -88,7 +88,8 @@ export default function Navbar() {
         </button>
       </div>
 
-      {createPortal(
+      {/* No document during build-time prerendering (scripts/prerender.mjs). */}
+      {typeof document !== "undefined" && createPortal(
         <AnimatePresence>
           {menuOpen && (
             <>
