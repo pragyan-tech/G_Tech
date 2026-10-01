@@ -9,8 +9,7 @@ import {
   MEASURING_EQUIPMENT,
   CERTIFICATIONS,
   AWARDS,
-  CERT_SECTION_BG,
-  unsplash,
+  CERT_SECTION_BG
 } from "../data/site.js";
 import "./Quality.css";
 

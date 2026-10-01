@@ -37,6 +37,8 @@
      Oswald for headings (uppercase, letter-spaced, condensed) per the
      Trinity-style overhaul; Inter stays the body/UI-chrome face. */
   --font-heading: "Oswald", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Logo wordmark only — never use for headings. */
+  --font-logo: "Anton", "Oswald", "Impact", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   --text-eyebrow: 0.75rem;   /* 12px */
@@ -93,7 +95,7 @@
   --container-wide: 1360px;
   --gutter: 24px;
   --gutter-lg: 48px;
-  --header-h: 72px;
+  --header-h: 68px; /* 88px at ≥1024px — see media query below */
 
   /* --- Radius --- */
   --radius-sm: 6px;
@@ -118,6 +120,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Taller desktop header for the enlarged logo lockup. Hero / PageHero
+   padding and scroll-margin offsets all derive from --header-h. */
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 88px;
+  }
 }
 
 /* --------------------------------------------------------------------------

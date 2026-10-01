@@ -33,37 +33,119 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  height: 60px;
-}
-
-@media (min-width: 1024px) {
-  .nav__inner {
-    height: var(--header-h);
-  }
+  /* 68px mobile / 88px desktop — see --header-h in index.css */
+  height: var(--header-h);
 }
 
 .nav__brand {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
 }
 
+/* --- Logo lockup: gear + EST tag + stacked GTECH / ENTERPRISES --- */
 .logo {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
+  transition: transform 200ms ease-out;
+}
+.logo__mark-wrap {
+  position: relative;
+  flex: none;
+  display: inline-flex;
 }
 .logo__mark {
-  flex: none;
+  display: block;
+  width: 48px;
+  height: 48px;
+  transition: filter 200ms ease-out;
 }
-.logo__word {
+.logo__est {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  z-index: 1;
+  padding: 2px 6px;
+  border-radius: 2px;
+  background: var(--color-navy);
+  /* white keyline separates the tag from the gear and keeps it legible on dark */
+  box-shadow: 0 0 0 1.5px var(--color-white);
+  color: var(--color-white);
   font-family: var(--font-body);
-  font-size: var(--text-body);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-tight);
+  font-size: 0.5rem;
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
-.logo__word strong {
-  font-weight: var(--weight-bold);
+.logo__word {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.logo__name {
+  font-family: var(--font-logo);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+  transition: color var(--transition);
+}
+.logo__sub {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: clamp(0.6rem, 1.1vw, 0.75rem);
+  line-height: 1;
+  letter-spacing: 0.15em;
+  color: var(--color-orange);
+}
+.logo--on-dark .logo__name {
+  color: var(--color-white);
+}
+
+.nav__brand:hover .logo {
+  transform: translateY(-1px);
+}
+.nav__brand:hover .logo__mark {
+  filter: brightness(1.08);
+}
+
+@media (min-width: 1024px) {
+  .logo__mark {
+    width: 61px;
+    height: 61px;
+  }
+  .logo__est {
+    top: -4px;
+    right: -12px;
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo__mark {
+    width: 42px;
+    height: 42px;
+  }
+  .logo__sub {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .logo__mark {
+    transition: none;
+  }
+  .nav__brand:hover .logo {
+    transform: none;
+  }
 }
 
 /* desktop links */
