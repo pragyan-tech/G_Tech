@@ -43,42 +43,47 @@
   min-width: 0;
 }
 
-/* --- Logo lockup: gear + EST tag + stacked GTECH / ENTERPRISES --- */
+/* --- Logo lockup: gear mark + EST overlay + stacked GTECH / ENTERPRISES --- */
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 14px;
   transition: transform 200ms ease-out;
 }
-.logo__mark-wrap {
+.logo__mark-wrapper {
   position: relative;
   flex: none;
   display: inline-flex;
 }
+/* source PNG is 493x314 — fixed height, width follows the 1.57:1 ratio */
 .logo__mark {
   display: block;
-  width: 48px;
-  height: 48px;
+  height: 44px;
+  width: auto;
   transition: filter 200ms ease-out;
 }
+/* sits in the transparent gap between the shaft's two dark rails
+   (measured from the PNG: rails span x 49–96%, gap centred at y ~50%) */
 .logo__est {
   position: absolute;
-  top: -5px;
-  right: -10px;
-  z-index: 1;
-  padding: 2px 6px;
-  border-radius: 2px;
-  background: var(--color-navy);
-  /* white keyline separates the tag from the gear and keeps it legible on dark */
-  box-shadow: 0 0 0 1.5px var(--color-white);
-  color: var(--color-white);
+  top: 50%;
+  left: 73%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-body);
-  font-size: 0.5rem;
-  font-weight: var(--weight-bold);
-  line-height: 1.2;
-  letter-spacing: 0.1em;
+  font-size: 0.4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  /* gap is transparent, so the text follows the navbar background */
+  color: var(--color-navy);
+  pointer-events: none;
+  user-select: none;
+  transition: color var(--transition);
+}
+.logo--on-dark .logo__est {
+  color: var(--color-white);
 }
 .logo__word {
   display: flex;
@@ -116,22 +121,31 @@
   filter: brightness(1.08);
 }
 
+@media (min-width: 640px) {
+  .logo__mark {
+    height: 52px;
+  }
+}
+
 @media (min-width: 1024px) {
   .logo__mark {
-    width: 61px;
-    height: 61px;
+    height: 62px;
   }
   .logo__est {
-    top: -4px;
-    right: -12px;
-    font-size: 0.55rem;
+    font-size: 0.45rem;
+  }
+}
+
+/* the shaft is too narrow for the overlay at mobile logo sizes */
+@media (max-width: 640px) {
+  .logo__est {
+    display: none;
   }
 }
 
 @media (max-width: 400px) {
   .logo__mark {
-    width: 42px;
-    height: 42px;
+    height: 40px;
   }
   .logo__sub {
     display: none;
